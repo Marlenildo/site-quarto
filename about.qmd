@@ -1,9 +1,42 @@
 ---
-title: "About"
+title: "Marlenildo Melo"
+about:
+  id: hero-heading
+  template: jolla
+  image: midia/perfil.jpeg
+format:
+  html:
+    include-in-header:
+      - text: |
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 ---
 
-About this site
+::: {#hero-heading}
+**Marlenildo Melo** é Engenheiro Agrônomo e doutror em Agronomia/Fitotecnia com foco em Melhoramento Genético, Tecnologia de Sementes e Pós-Colheita. Possui sólida experiência em **análise de dados e estatística aplicada à pesquisa agronômica**, utilizando a linguagem **R** para tratamento, visualização e interpretação de dados.
 
-```{r}
-1 + 1
-```
+## Educação
+
+**Universidade Federal Rural do Semi-Árido (UFERSA) \| Mossoró, RN**\
+Mestrado e Doutorado em Agronomia/Fitotecnia \| 2016 - 2022
+
+**Instituto Federal de Educação, Ciência e Tecnologia do Ceará \| Ceará, CE**\
+Engenharia Agronômica \| 2012 - 2016
+
+**Universidade Federal do Ceará \| Ceará, CE**\
+Administração Pública \| 2011 - 2015
+
+## Experiência Profissional
+
+**Pesquisador e Analista de Dados Agronômicos** \| 2016 - presente\
+Atuação em projetos de pesquisa envolvendo análise de dados, estatística aplicada à agronomia e uso avançado da linguagem R para visualização e interpretação de resultados.
+
+## Meus links
+
+Acesse meus currículos ou entre em contato comigo através dos links abaixo:
+
+<i class="fa-solid fa-link"></i> [Linktree](https://linktr.ee/marlenildomelo)
+
+<i class="fas fa-envelope"></i> [marlenildo\@gmail.com](mailto:marlenildo@gmail.com)
+
+<i class="fab fa-whatsapp"></i> [(84) 98752-1095](https://wa.me/5584987521095)
+:::

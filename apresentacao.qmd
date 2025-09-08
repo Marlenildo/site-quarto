@@ -1,0 +1,207 @@
+---
+title: "Curso de Estatística com R para Experimentação Agrícola"
+author: "Marlenildo Melo"
+date: "2025-08-21"
+lang: "pt-BR"
+format:
+  html:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+    number_sections: true
+    include-in-header:
+      - text: |
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+---
+
+
+# <i class="fa-solid fa-book"></i>  Apresentação do Curso {.tabset}
+
+Este material serve como guia para o curso **Estatística com R para Experimentação Agrícola**.\
+Cada aula contém **explicações teóricas resumidas** e **códigos práticos** para serem executados no RStudio.  
+
+## Módulo 1 – Introdução ao R e Organização de Dados (Semanas 1-2)
+
+**Objetivo:** Familiarizar o aluno com R, RStudio e a preparação correta dos dados.
+
+### Aula 1: Apresentação do curso + Instalação do R e RStudio
+
+-   O que é R e RStudio
+-   Instalação passo a passo
+-   Estrutura do RStudio (console, script, environment, plots, packages)
+
+### Aula 2: Primeiros passos no R
+
+-   Comandos básicos
+-   Operadores aritméticos e lógicos
+-   Criando e manipulando objetos
+
+### Aula 3: Instalação e uso de pacotes
+
+-   `install.packages()`, `library()`
+-   Pacotes úteis: `tidyverse`, `readxl`, `agricolae`, `emmeans`, `broom`, `ggplot2`
+-   Como procurar ajuda e documentação
+
+### Aula 4: Organização de dados
+
+-   Como estruturar dados no Excel (linhas = observações, colunas = variáveis)
+-   Importação de arquivos (.csv, .xlsx, .txt)
+-   Uso de `read.csv()`, `readxl::read_excel()`, `read.table()`
+-   Verificação e limpeza dos dados (`head()`, `str()`, `summary()`)
+
+------------------------------------------------------------------------
+
+
+## Módulo 2 – Manipulação e Exploração de Dados (Semanas 3-4)
+
+**Objetivo:** Aprender a organizar, transformar e explorar dados antes da análise.
+
+### Aula 5: tidyverse para manipulação
+
+-   `dplyr`: `select()`, `filter()`, `mutate()`, `summarise()`, `group_by()`
+-   `tidyr`: `pivot_longer()`, `pivot_wider()`
+
+### Aula 6: Estatística descritiva
+
+-   Médias, desvios-padrão, erro-padrão
+-   Tabelas resumo com `dplyr`
+-   Visualizações iniciais: histogramas, boxplots, gráficos de barras
+
+### Aula 7: Gráficos com ggplot2
+
+-   Estrutura do `ggplot2`
+-   Gráficos básicos aplicados a dados de experimentação agrícola
+-   Personalização de gráficos
+
+### Aula 8: Introdução aos delineamentos experimentais
+
+-   Delineamentos básicos: DIC, DBC
+-   Estrutura dos dados em experimentação agrícola
+-   Preparação dos dados no Excel para cada delineamento
+
+------------------------------------------------------------------------
+
+
+
+## Módulo 3 – Análise de Variância (ANOVA) (Semanas 5-8)
+
+**Objetivo:** Ensinar a rodar ANOVA, verificar pressupostos e interpretar resultados, utilizando diferentes pacotes.
+
+### Aula 9: ANOVA em DIC
+
+-   Funções base: `aov()`
+-   ANOVA com `ExpDes.pt` (`dic()`)
+-   ANOVA com `easyanova`
+
+### Aula 10: ANOVA em DBC
+
+-   Funções base: `aov()`
+-   ANOVA com `ExpDes.pt` (`dbc()`)
+-   Comparação da saída entre pacotes
+
+### Aula 11: Testes de pressupostos
+
+-   Normalidade dos resíduos: `shapiro.test()`, `rstatix::shapiro_test()`
+-   Homogeneidade: `bartlett.test()`, `car::leveneTest()`, `rstatix::levene_test()`
+-   Interpretação prática
+
+### Aula 12: Testes de comparação de médias
+
+-   `TukeyHSD()` (base R)
+-   `ExpDes.pt` (já integrado à ANOVA)
+-   `emmeans` + `cld()`
+-   `rstatix::t_test()` e `rstatix::anova_test()`
+
+### Aula 13: ANOVA em esquemas fatoriais
+
+-   Dois fatores com `aov()`
+-   Dois fatores com `ExpDes.pt::fat2.dic()` e `fat2.dbc()`
+-   Interpretação das interações
+
+### Aula 14: ANOVA em parcela subdividida
+
+-   Estrutura de dados
+-   `ExpDes.pt::psub2.dbc()` (ou funções equivalentes)
+-   Modelos mistos com `lme4::lmer()`
+
+### Aula 15: Como reportar resultados da ANOVA
+
+-   `broom::tidy()` para organizar tabelas
+-   Exportação de resultados com `rstatix` (`get_anova_table()`)
+-   Apresentação de médias e letras com `agricolae`, `emmeans` e `ExpDes.pt`
+
+### Aula 16: Exercícios práticos comparando pacotes
+
+-   Mesmos dados analisados em `aov()`, `ExpDes.pt`, `easyanova` e `rstatix`
+-   Discussão: qual usar em cada situação
+
+------------------------------------------------------------------------
+
+## Módulo 4 – Regressão e Modelos (Semanas 9-11)
+
+**Objetivo:** Introduzir regressão e aplicações em experimentação agrícola.
+
+### Aula 17: Introdução à regressão linear
+
+-   Conceito, ajuste com `lm()`
+-   Gráficos de regressão no `ggplot2`
+
+### Aula 18: Regressão polinomial
+
+-   `lm(y ~ poly(x, 2))`
+-   Aplicações em curvas de dose, tempo, crescimento
+
+### Aula 19: Seleção de modelos
+
+-   Critérios AIC e BIC
+-   Comparação de modelos
+
+### Aula 20: Regressão não linear
+
+-   `nls()`
+-   Ajuste de curvas de resposta à dose
+
+### Aula 21: Regressão logística (ex.: dados de presença/ausência)
+
+-   `glm(family = binomial)`
+-   Exemplos em fitossanidade e sobrevivência
+
+### Aula 22: Exercícios práticos de regressão com dados agrícolas
+
+------------------------------------------------------------------------
+
+## Módulo 5 – Encerramento e Projeto Final (Semana 12)
+
+**Objetivo:** Consolidar o aprendizado com aplicações práticas.
+
+### Aula 23: Como estruturar um relatório científico no R
+
+-   Uso do RMarkdown
+-   Exportar para Word e PDF
+-   Organização dos resultados
+
+### Aula 24: Projeto final
+
+Cada aluno analisa um banco de dados de experimentação agrícola.
+
+Entrega de relatório com:
+
+-   Estrutura dos dados
+-   ANOVA + testes de médias ou regressão
+-   Gráficos e tabelas
+-   Interpretação
+
+------------------------------------------------------------------------
+
+## 📅 Cronograma Resumido (Atualizado)
+
+-   **Semanas 1-2**: R, RStudio, pacotes, organização/importação de dados\
+-   **Semanas 3-4**: Manipulação de dados, gráficos, delineamentos\
+-   **Semanas 5-8**: ANOVA com base R, `ExpDes.pt`, `easyanova` e `rstatix`\
+-   **Semanas 9-11**: Regressão (linear, polinomial, não linear, logística)\
+-   **Semana 12**: Relatórios e Projeto Final
+
+------------------------------------------------------------------------
+
+

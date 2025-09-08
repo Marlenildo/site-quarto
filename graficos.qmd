@@ -1,0 +1,786 @@
+---
+title: "Construindo gráficos no R"
+author: "Marlenildo Melo"
+date: "2025-09-02"
+lang: "pt-BR"
+format:
+  html:
+    include-in-header:
+      - text: |
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+    toc_depth: 4
+    number_sections: true
+---
+
+# **Pacotes necessários**
+
+Construindo gráficos usando o pacote *ggplot2*
+
+
+
+```{r warning=FALSE, message=FALSE}
+library(ggplot2) #Criar gráficos de vários tipos
+library(dplyr) #Utilizar operadores pipes
+library(rstatix) #Pacote para realizar estatística descritiva
+```
+
+
+# **Banco de dados**
+
+
+```{r include=FALSE}
+
+dados = read.table(header=TRUE, stringsAsFactors=TRUE, text="
+
+FMICO	LIRRIG	DAS	MAP	DPAP	MDC	DPDC	MNF	DPNF
+F0	L4	10	8.175	0.62915287	1.65	0.057735027	4.25	0.5
+F0	L4	10	9	1.414213562	1.65	0.238047614	4.5	0.577350269
+F0	L4	10	9.075	0.287228132	1.55	0.129099445	4	0
+F0	L4	30	17.3	1.023067284	3.85	0.057735027	8.75	0.5
+F0	L4	30	17.4	1.329160136	3.725	0.05	8.75	0.5
+F0	L4	30	19	3.265986324	3.925	0.340342964	9.25	0.957427108
+F0	L4	50	27.925	1.977161265	3.8	0.081649658	9.25	0.5
+F0	L4	50	29.075	2.439091361	3.85	0.129099445	9.75	0.5
+F0	L4	50	29.25	9.394147114	3.95	0.331662479	10	0.816496581
+F0	L6	10	8.225	0.596517672	1.925	0.095742711	4.25	0.5
+F0	L6	10	8.4	0.752772653	1.925	0.15	4	0
+F0	L6	10	9.25	2.061552813	2	0.316227766	4.5	0.577350269
+F0	L6	30	19.2	0.43204938	3.725	0.15	8.25	0.5
+F0	L6	30	19.3	0.678232998	3.7	0.182574186	8.5	0.577350269
+F0	L6	30	20.75	3.304037934	3.825	0.309569594	9	1.632993162
+F0	L6	50	26.825	0.928708781	3.9	0.115470054	10.75	0.5
+F0	L6	50	27.075	0.613052472	3.925	0.095742711	11	0
+F0	L6	50	27.25	2.5	4.05	0.37859389	11	0.816496581
+F0	L8	10	9.05	0.173205081	1.7	0.182574186	3.75	0.5
+F0	L8	10	9.375	0.35	1.55	0.057735027	4	0
+F0	L8	10	9.75	1.5	1.825	0.518812747	4	0.816496581
+F0	L8	30	19.8	1.849324201	4.05	0.129099445	9.5	0.577350269
+F0	L8	30	20.725	1.871496727	3.95	0.057735027	9.25	0.5
+F0	L8	30	22.75	6.396613687	4.075	0.320156212	9.75	1.892969449
+F0	L8	50	25.6	2.284731932	4.15	0.1	11.75	0.5
+F0	L8	50	30.95	3.355095627	4.05	0.057735027	11.75	0.5
+F0	L8	50	37	21.9089023	4.15	0.251661148	12.25	0.957427108
+F1	L4	10	8.75	0.404145188	2.1	0.21602469	4	0
+F1	L4	10	8.8	0.294392029	1.95	0.191485422	4	0
+F1	L4	10	9.5	1.914854216	2.1	0.346410162	4.5	0.577350269
+F1	L4	30	20.25	0.525991128	3.95	0.264575131	9	0
+F1	L4	30	20.625	1.286791876	4.15	0.057735027	8.75	0.5
+F1	L4	30	23	8.041558721	4.1	0.346410162	9.25	1.258305739
+F1	L4	50	30.575	5.113625589	4.225	0.170782513	10.5	0.577350269
+F1	L4	50	30.775	8.803929047	4.175	0.15	11	0
+F1	L4	50	35.75	16.68082732	4.275	0.419324854	11	0.816496581
+F1	L6	10	10.025	0.095742711	2.1	0	4	0
+F1	L6	10	10.1	0.081649658	2.1	0	4	0
+F1	L6	10	10.375	0.75	2.15	0.1	4.25	0.5
+F1	L6	30	23.425	1.497497913	4.225	0.095742711	9	0
+F1	L6	50	24.075	2.487803583	4.275	0.095742711	11.25	0.5
+F1	L6	30	24.275	1.093541647	4.175	0.05	9.25	0.5
+F1	L6	30	25.375	7.542932675	4.4	0.476095229	9.5	1.290994449
+F1	L6	50	29.55	4.662259824	4.4	0.081649658	11.25	0.5
+F1	L6	50	35.25	16.8399327	4.375	0.411298756	11.5	1.914854216
+F1	L8	10	9.875	0.512347538	2.175	0.206155281	4	0
+F1	L8	10	10.25	1.707825128	2.325	0.386221008	4.5	0.577350269
+F1	L8	10	10.6	0.182574186	2.25	0.1	4.75	0.5
+F1	L8	30	22.35	0.732575366	4.25	0.288675135	10	0
+F1	L8	30	22.675	0.585234996	4.15	0.173205081	10.5	0.577350269
+F1	L8	30	23.75	2.872281323	4.325	0.386221008	10.5	1
+F1	L8	50	28.55	3.189043744	4.1	0.294392029	11.5	0.577350269
+F1	L8	50	31.175	3.228389691	4.2	0.316227766	11.5	0.577350269
+F1	L8	50	36	13.29160136	4.45	1.021436896	11.5	1
+F2	L4	10	11.975	0.556027577	2.125	0.05	4.5	0.577350269
+F2	L4	10	12.2	0.461880215	2.15	0.057735027	4.25	0.5
+F2	L4	10	12.75	1.258305739	2.2	0.163299316	4.5	0.577350269
+F2	L4	30	24.125	3.241784488	4.15	0.057735027	9.25	0.5
+F2	L4	30	25.55	2.179449472	4.15	0.057735027	10	0.816496581
+F2	L4	30	26.25	5.678908346	4.2	0.163299316	10.25	1.707825128
+F2	L4	50	35.25	4.373023363	4.35	0.057735027	11.25	0.5
+F2	L4	50	36.725	4.359185704	4.325	0.05	11.25	0.5
+F2	L4	50	38.5	10.34408043	4.375	0.125830574	11.5	1
+F2	L6	10	11.55	0.465474668	2.125	0.095742711	4.25	0.5
+F2	L6	10	13.975	1.512999229	2.05	0.129099445	4	0
+F2	L6	10	15.25	6.184658438	2.2	0.326598632	4.5	0.577350269
+F2	L6	30	25.45	1.138712724	4.35	0.057735027	10	0
+F2	L6	30	25.725	1.581929202	4.4	0.081649658	10.5	0.577350269
+F2	L6	30	32.5	14.84362939	4.5	0.25819889	10.75	0.957427108
+F2	L6	50	40.7	10.55525146	4.275	0.095742711	10.5	0.577350269
+F2	L6	50	46.925	6.630422309	4.35	0.129099445	11	0
+F2	L6	50	48.75	22.35136088	4.45	0.42031734	11.5	1.732050808
+F2	L8	10	12.325	0.556027577	2.25	0.057735027	4.75	0.5
+F2	L8	10	12.8	1.34412301	2.2	0.081649658	5	0
+F2	L8	10	13.25	4.031128874	2.325	0.206155281	4.75	0.5
+F2	L8	30	25.025	2.886029568	4.2	0	10	0
+F2	L8	30	27.375	1.89802529	4.175	0.05	9.75	0.5
+F2	L8	30	29.25	10.37223859	4.325	0.206155281	10.25	1.258305739
+F2	L8	50	46.2	4.443722164	4.625	0.05	11.75	0.957427108
+F2	L8	50	48.275	7.261485156	4.55	0.191485422	12	0
+F2	L8	50	52	16.1245155	4.625	0.275378527	12.25	1.707825128
+")
+
+
+dados <- dados |>  convert_as_factor(FMICO, LIRRIG, DAS)
+```
+
+
+A elaboração dos gráficos neste trabalho será realizada utilizando o pacote `ggplot2`. 
+
+Para os exemplos apresentados, será utilizado o banco de dados `dados`, que contém as seguintes variáveis:
+
+
+- **FMICO**: fator relacionado à aplicação de fungo micorrízico (com ou sem inoculação);  
+- **LIRRIG**: níveis de irrigação aplicados às plantas;  
+- **DAS**: dias após a semeadura, utilizado como variável temporal para acompanhamento do desenvolvimento;  
+- **MAP**: Massa aérea da parte aérea da planta (g ou kg, dependendo da unidade utilizada no experimento);  
+- **DPAP**: desvio-padrão da massa aérea da planta, indicando a variabilidade da medida;  
+- **MDC**: massa da parte da raiz ou do caule (dependendo da nomenclatura definida no experimento);  
+- **DPDC**: desvio-padrão da massa da raiz ou caule;  
+- **MNF**: massa seca de folhas (g ou kg);  
+- **DPNF**: desvio-padrão da massa seca de folhas.  
+
+Esse banco de dados contém informações experimentais essenciais para avaliar o efeito de micorrizas e diferentes lâminas de irrigação sobre o crescimento e a produção vegetal ao longo do tempo.
+
+Esse conjunto de informações possibilita tanto a construção de gráficos exploratórios (como boxplots e histogramas) quanto a representação de médias e grupos de comparação, atendendo às necessidades da análise estatística e da apresentação dos resultados.
+
+
+**Visualização do banco de dados**
+
+```{r}
+dados |> head()
+```
+
+**Estrutura dos dados**
+
+```{r}
+str(dados)
+```
+
+----
+
+
+## **Gráfico de boxplot**
+
+-   Variável dependente: MAP  
+-   Variáveis independentes: FMICO, LIRRIG, DAS  
+
+
+### **Modelo 1- Simples com duas variáveis**
+
+Massa aérea da parte aérea da planta (MAP) em função de níveis de irrigação aplicados às plantas (LIRIG).
+
+```{r}
+dados |> 
+  ggplot(aes(x= LIRRIG, y=MAP))+ #Escolhe que variáveis aparecem no eixo X, Y e grupo
+  geom_boxplot()
+
+
+```
+
+
+### **Modelo 2 - Agrupado com três variáveis**\
+
+Massa aérea da parte aérea da planta (MAP) em função de níveis de irrigação aplicados às plantas (LIRIG) separado por dias após a semeadura (DAS).
+
+
+```{r}
+dados |> 
+  ggplot(aes(x=LIRRIG, y=MAP))+ #Escolhe que variáveis aparecem no eixo X, Y e grupo
+  geom_boxplot()+ #Seleciona tipo de gráfico de boxplot
+  facet_grid(~DAS) # Agrupa gráfico por MICO
+```
+
+Podemos trocar e fazer o gráfico em função de DAS e separado por LIRRIG.
+
+```{r}
+dados |> 
+  ggplot(aes(x=DAS, y=MAP))+ #Escolhe que variáveis aparecem no eixo X, Y e grupo
+  geom_boxplot()+ #Seleciona tipo de gráfico de boxplot
+  facet_grid(~LIRRIG) # Agrupa gráfico por LRRIG
+```
+
+----
+
+### **Modelo 3 agrupado com quatro variáveis**\
+
+Massa aérea da parte aérea da planta (MAP) em função de níveis de irrigação aplicados às plantas (LIRIG) separado por dias após a semeadura (DAS) e agrupado por FMICO
+
+
+```{r}
+dados |> 
+  ggplot(aes(x=LIRRIG, y=MAP, fill=FMICO))+ #Escolhe que variáveis aparecem no eixo X, Y e grupo
+  geom_boxplot()+ #Seleciona tipo de gráfico de boxplot
+  facet_grid(~DAS)+ # Agrupa gráfico por DAS 
+  theme_bw() #Estilo de gráfico
+```
+
+
+
+
+----
+
+Alterando títulos dos eixos
+
+
+### **Modelo 5**\
+
+
+
+```{r}
+dados |> 
+  ggplot(aes(x=LIRRIG, y=MAP, fill=FMICO))+ #Escolhe que variáveis aparecem no eixo X, Y e grupo
+  geom_boxplot()+ #Seleciona tipo de gráfico de boxplot
+  facet_grid(~DAS)+ # Agrupa gráfico por DAS 
+  theme_bw()+ #Estilo de gráfico
+  xlab("Dias")+ #Altera o título do eixo X
+  ylab("Nome da variável no eixo y") #Altera o título do eixo Y
+  
+```
+
+
+
+
+
+<br>
+<br>
+
+-----
+
+## **Gráfico de linhas e barras de erros**
+
+
+
+Para fazer gráfico de linhas, a variável no eixo X precisa ser uma variável numérica, como DAS
+
+### **Modelo 1**\
+
+
+
+```{r}
+
+#chama arquivo de dados
+dados |> 
+  
+  # Realizar o agrupamento dos dados por FMICO, LIRRIG e DAS
+  group_by(FMICO, LIRRIG,DAS) |> 
+  
+  # Calcular as estatísticas resumidas (média e erro padrão) para a coluna MAP dentro de cada grupo
+  get_summary_stats(MAP, type="mean_se") |> 
+  
+  # Criar o gráfico de linhas
+  ggplot(aes(x = DAS, #Variável no eixo X
+             y = mean, #Variável no eixo Y (essa deve ser a varável analisada (dependente))
+             fill = LIRRIG)) + #Variável na legenda (as linhas terão as cores agrupadas conforme essa variável)
+  
+  # Adicionar as linhas de dados
+  geom_line(aes(
+    color=LIRRIG) #define as cores das linhas de acordo com LIRRIG
+    )+
+  
+  # Adicionar pontos nas linhas (opcional)
+  geom_point(aes(
+    color=LIRRIG) #define as cores das linhas de acordo com LIRRIG
+    )+
+  
+  #Adiciona barras de erros nos pontos
+  geom_errorbar(aes(ymax = mean + se, #Barra de erro para baixo (média - erro)
+                   ymin = mean - se, #Barra de erro para cima (média + erro) 
+                   width=2, #define a largura da barra de erro 
+                   color=LIRRIG #define as cores das linhas de acordo com LIRRIG
+                   ))+
+  
+  #Agrupa os gráficos por FMICO
+  facet_grid(~FMICO)+
+  
+  #Define o estilo do gráfico
+  theme_bw()+
+  
+  #Altera título do eixo X
+  xlab("Nome da variável no eixo X (DAS)")+
+
+  #Altera título do eixo Y
+  ylab("Nome da variável no eixo Y (MAP)")
+  
+```
+
+----
+
+### **Modelo 2**\
+
+
+Adicionando letras nas linhas:\
+
+
+```{r}
+#chama arquivo de dados
+dados |> 
+  
+  # Realizar o agrupamento dos dados por FMICO, LIRRIG e DAS
+  group_by(FMICO, LIRRIG,DAS) |> 
+  
+  # Calcular as estatísticas resumidas (média e erro padrão) para a coluna MAP dentro de cada grupo
+  get_summary_stats(MAP, type="mean_se") |> 
+  
+# Criar o gráfico de linhas
+  ggplot(aes(x = DAS, #Variável no eixo X
+             y = mean, #Variável no eixo Y (essa deve ser a varável analisada (dependente))
+             fill = LIRRIG)) + #Variável na legenda (as linhas terão as cores agrupadas conforme essa variável)
+  
+  # Adicionar as linhas de dados
+  geom_line(aes(
+    color=LIRRIG) #define as cores das linhas de acordo com LIRRIG
+    )+
+  
+  # Adicionar pontos nas linhas (opcional)
+  geom_point(aes(
+    color=LIRRIG) #define as cores das linhas de acordo com LIRRIG
+    )+
+  
+  #Adiciona barras de erros nos pontos
+  geom_errorbar(aes(ymax = mean + se, #Barra de erro para baixo (média - erro)
+                   ymin = mean - se, #Barra de erro para cima (média + erro) 
+                   width=2, #define a largura da barra de erro 
+                   color=LIRRIG #define as cores das linhas de acordo com LIRRIG
+                   ))+
+  
+  #Agrupa os gráficos por FMICO
+  facet_grid(~FMICO)+
+  
+  #Define o estilo do gráfico
+  theme_bw()+
+  
+  #Altera título do eixo X
+  xlab("Nome da variável no eixo X (DAS)")+
+
+  #Altera título do eixo Y
+  ylab("Nome da variável no eixo Y (MAP)")
+  
+  # Adiocionar letras acima das barras
+  geom_text(aes(label = c(
+    "a"#1
+    
+    )),position = position_dodge(1), vjust = -1)
+  
+```
+
+
+----
+
+
+## **Gráfico de pontos e barras de erros**
+
+
+### **Modelo1**\
+
+```{r}
+
+
+dados |>
+  group_by(FMICO, LIRRIG, DAS) |>
+  get_summary_stats(MAP, type = "mean_se") |>
+  convert_as_factor(DAS) |>
+  
+  ggplot(aes(
+    x = FMICO,
+    y = mean,
+    fill = LIRRIG
+  )) +
+  geom_point(aes(color = LIRRIG), position = position_dodge(width = 0.2)) +
+  geom_errorbar(
+    aes(
+      x = FMICO,
+      ymax = mean + se,
+      ymin = mean - se,
+      width = 0.1,
+      color = LIRRIG
+    ),
+    position = position_dodge(width = 0.2)
+  ) +
+  facet_grid(~DAS) +
+  theme_bw() +
+  xlab("Nome da variável no eixo X (DAS)") +
+  ylab("Nome da variável no eixo Y (MAP)")
+
+```
+
+
+----
+
+
+### **Modelo2**\
+
+Adicionando significância entre tratamentos.\
+
+
+```{r}
+
+
+teste=
+dados |> 
+  group_by(DAS, FMICO) |>
+  pairwise_t_test(MAP ~ LIRRIG, p.adjust.method = "bonferroni") |> 
+  dplyr::select(-`p`, -`p.signif`) |> 
+  add_xy_position(x = "DAS") |>  
+  filter(`p.adj`<0.05 ) 
+
+
+```
+
+
+
+```{r}
+
+
+library(ggpubr)
+
+dados |>
+  group_by(FMICO, LIRRIG, DAS) |>
+  get_summary_stats(MAP, type = "mean_se") |>
+  convert_as_factor(DAS) |>
+  
+  ggplot(aes(
+    x = FMICO,
+    y = mean,
+    fill = LIRRIG
+  )) +
+  geom_point(aes(color = LIRRIG), position = position_dodge(width = 0.2)) +
+  geom_errorbar(
+    aes(
+      x = FMICO,
+      ymax = mean + se,
+      ymin = mean - se,
+      width = 0.1,
+      color = LIRRIG
+    ),
+    position = position_dodge(width = 0.2)
+  ) +
+  facet_grid(~DAS) +
+  theme_bw() +
+  xlab("Nome da variável no eixo X (DAS)") +
+  ylab("Nome da variável no eixo Y (MAP)")
+  # stat_pvalue_manual(teste, tip.length = 0, hide.ns = TRUE)
+
+
+```
+
+
+
+
+<br>
+<br>
+
+----
+
+## **Gráfico de barras e erros**
+
+
+
+```{r include=FALSE}
+
+dados = read.table(header=TRUE, stringsAsFactors=TRUE, text="
+FMICO	LIRRIG	BLOCO	REP	CLOA	CLOB	F0	FM	FV	FVFM	FVF0	MSC	MSF	MSR	AF
+F0	L4	1	1	34.98	9.80	115.00	462.00	325.00	0.70	2.83	1.19	1.95	1.53	260.57
+F0	L4	1	2	31.80	12.20	142.00	643.00	515.00	0.80	3.63	1.12	1.89	1.09	292.22
+F0	L4	1	3	37.50	11.30	123.00	630.00	502.00	0.80	4.08	1.34	1.67	2.82	415.34
+F0	L4	1	4	36.50	14.30	136.00	699.00	557.00	0.80	4.10	0.73	2.04	2.32	320.20
+F0	L4	2	1	33.80	10.50	131.91	644.69	458.98	0.71	3.48	1.18	1.91	1.82	303.59
+F0	L4	2	2	36.22	11.40	122.31	666.94	507.36	0.76	4.15	0.88	1.89	1.37	315.73
+F0	L4	2	3	34.08	12.00	124.21	594.20	488.51	0.82	3.93	1.17	1.91	1.57	285.04
+F0	L4	2	4	32.71	12.23	120.06	504.03	502.68	1.00	4.19	0.96	1.94	1.86	309.22
+F0	L4	3	1	33.05	11.99	123.14	644.12	392.81	0.61	3.19	1.22	1.86	1.83	313.11
+F0	L4	3	2	35.02	11.71	120.49	640.10	485.75	0.76	4.03	1.05	1.89	1.53	287.72
+F0	L4	3	3	33.14	10.63	133.20	628.63	441.80	0.70	3.32	0.98	1.76	2.01	317.19
+F0	L4	3	4	34.15	11.73	127.33	560.66	489.25	0.87	3.84	1.00	1.80	1.49	292.79
+F0	L6	1	1	36.40	12.50	122.00	613.00	491.00	0.80	4.02	0.93	1.63	1.90	333.20
+F0	L6	1	2	34.20	13.10	118.00	656.00	538.00	0.82	4.56	1.35	1.82	1.32	302.08
+F0	L6	1	3	33.00	10.70	137.00	626.00	489.00	0.78	3.57	1.69	2.79	2.91	278.72
+F0	L6	1	4	35.40	11.90	143.00	659.00	516.00	0.78	3.61	0.93	2.22	2.79	341.05
+F0	L6	2	1	33.87	12.33	125.56	648.31	490.46	0.76	3.91	1.12	2.09	2.06	286.63
+F0	L6	2	2	35.34	12.13	131.77	651.60	499.45	0.77	3.79	1.14	1.88	1.51	301.97
+F0	L6	2	3	35.16	11.76	128.57	632.14	491.81	0.78	3.83	1.21	1.90	1.99	316.09
+F0	L6	2	4	33.44	12.35	123.74	620.19	495.35	0.80	4.00	1.09	1.86	2.48	320.33
+F0	L6	3	1	34.57	12.03	130.50	648.89	500.21	0.77	3.83	1.03	1.90	1.49	301.28
+F0	L6	3	2	34.79	11.29	123.67	635.18	507.45	0.80	4.10	1.11	1.72	2.06	309.44
+F0	L6	3	3	34.06	12.40	118.40	629.71	510.35	0.81	4.31	1.17	1.91	2.41	307.81
+F0	L6	3	4	34.62	11.34	120.17	621.40	498.57	0.80	4.15	0.91	2.16	2.61	322.11
+F0	L8	1	1	36.60	13.80	135.00	659.00	527.00	0.80	3.90	1.03	2.33	1.78	339.40
+F0	L8	1	2	34.40	9.80	144.00	693.00	550.00	0.79	3.82	1.16	1.62	2.33	389.30
+F0	L8	1	3	36.20	14.60	126.00	697.00	548.00	0.79	4.35	1.27	1.91	1.95	272.86
+F0	L8	1	4	37.10	15.30	162.00	668.00	523.00	0.78	3.23	1.24	1.95	4.77	373.37
+F0	L8	2	1	35.68	12.11	139.35	662.05	535.90	0.81	3.85	1.14	1.98	1.79	304.24
+F0	L8	2	2	36.62	13.56	134.97	661.36	537.40	0.81	3.98	1.14	1.83	2.36	320.02
+F0	L8	2	3	36.18	14.56	144.25	671.87	543.48	0.81	3.77	1.07	1.99	1.92	337.57
+F0	L8	2	4	35.30	13.25	136.32	683.99	542.71	0.79	3.98	1.09	2.02	1.97	311.36
+F0	L8	3	1	35.53	12.31	143.00	674.81	530.01	0.79	3.71	1.12	2.04	1.99	303.02
+F0	L8	3	2	35.00	13.44	141.70	678.89	523.58	0.77	3.69	1.20	1.87	1.98	329.56
+F0	L8	3	3	36.32	11.90	133.23	662.88	525.44	0.79	3.94	1.24	2.44	2.52	305.11
+F0	L8	3	4	35.64	12.98	130.22	660.72	524.24	0.79	4.03	1.12	2.63	1.78	358.02
+F1	L4	1	1	37.00	11.80	137.00	659.00	531.00	0.81	3.88	1.11	2.15	1.59	356.36
+F1	L4	1	2	34.80	10.40	128.00	614.00	480.00	0.78	3.75	1.13	1.83	2.83	317.18
+F1	L4	1	3	33.40	12.00	128.00	685.00	547.00	0.80	4.27	1.57	1.79	2.26	270.44
+F1	L4	1	4	35.70	16.00	142.00	682.00	542.00	0.79	3.82	1.10	2.08	3.78	341.65
+F1	L4	2	1	34.02	11.23	130.79	650.37	529.50	0.81	4.05	1.11	1.97	1.79	331.85
+F1	L4	2	2	35.00	11.78	131.82	645.62	512.44	0.79	3.89	1.09	2.02	2.08	303.27
+F1	L4	2	3	35.06	12.32	135.31	654.89	499.95	0.76	3.69	1.14	1.84	2.07	323.02
+F1	L4	2	4	34.89	12.40	129.20	660.53	505.29	0.76	3.91	1.19	1.83	2.59	338.32
+F1	L4	3	1	35.60	11.18	128.35	664.83	492.25	0.74	3.84	1.12	1.86	2.10	335.93
+F1	L4	3	2	33.98	11.83	129.14	661.80	498.51	0.75	3.86	1.12	1.93	1.88	331.25
+F1	L4	3	3	33.94	11.85	132.81	633.54	519.60	0.82	3.91	1.18	1.86	2.54	296.42
+F1	L4	3	4	34.91	11.26	131.09	627.84	507.93	0.81	3.87	1.12	1.92	1.89	331.89
+F1	L6	1	1	33.50	9.40	128.00	726.00	611.00	0.84	4.77	1.18	1.86	2.12	321.84
+F1	L6	1	2	36.20	14.80	134.00	690.00	548.00	0.79	4.09	1.34	1.87	2.90	343.83
+F1	L6	1	3	37.40	14.30	138.00	670.00	547.00	0.82	3.96	1.13	2.54	1.91	415.79
+F1	L6	1	4	38.50	15.40	140.00	617.00	481.00	0.78	3.44	1.23	2.03	2.60	301.38
+F1	L6	2	1	36.04	15.06	129.69	669.48	519.30	0.78	4.00	1.23	2.08	2.48	315.90
+F1	L6	2	2	37.10	11.31	133.03	649.99	527.55	0.81	3.97	1.22	1.98	2.37	318.98
+F1	L6	2	3	35.84	14.56	132.79	681.70	546.00	0.80	4.11	1.22	1.89	2.49	345.07
+F1	L6	2	4	34.33	15.36	135.42	650.07	517.59	0.80	3.82	1.17	1.88	2.06	338.84
+F1	L6	3	1	36.76	12.42	132.18	634.83	533.74	0.84	4.04	1.17	2.13	2.08	325.11
+F1	L6	3	2	37.41	13.04	133.02	662.93	521.06	0.79	3.92	1.21	1.91	2.21	331.89
+F1	L6	3	3	34.76	14.22	130.02	648.03	499.66	0.77	3.84	1.17	2.10	2.50	311.29
+F1	L6	3	4	36.51	11.76	130.27	643.72	528.18	0.82	4.05	1.17	2.16	2.30	337.97
+F1	L8	1	1	38.60	12.70	132.00	679.00	582.00	0.86	4.41	0.71	2.07	3.09	352.79
+F1	L8	1	2	37.80	14.30	143.00	666.00	527.00	0.79	3.69	1.56	2.28	2.27	319.46
+F1	L8	1	3	36.10	14.00	149.00	688.00	499.00	0.73	3.35	1.11	2.41	2.26	343.30
+F1	L8	1	4	35.70	14.40	145.00	707.00	567.00	0.80	3.91	1.91	1.99	2.72	346.00
+F1	L8	2	1	37.26	14.32	142.51	684.58	550.09	0.80	3.86	0.84	2.21	2.45	339.54
+F1	L8	2	2	36.77	13.12	139.44	673.45	533.29	0.79	3.82	1.52	2.06	2.41	330.20
+F1	L8	2	3	37.32	13.98	143.22	672.60	534.89	0.80	3.73	1.51	2.02	2.42	342.78
+F1	L8	2	4	36.73	13.19	137.22	685.18	521.69	0.76	3.80	1.41	1.92	2.46	345.92
+F1	L8	3	1	37.44	13.50	136.54	673.94	538.59	0.80	3.94	1.31	2.03	2.65	335.45
+F1	L8	3	2	37.40	14.25	142.93	682.65	506.27	0.74	3.54	1.36	2.11	2.61	341.13
+F1	L8	3	3	36.98	14.04	138.40	682.67	561.51	0.82	4.06	1.38	1.98	2.29	331.70
+F1	L8	3	4	36.71	13.74	145.34	675.18	552.05	0.82	3.80	0.88	1.71	2.61	336.72
+F2	L4	1	1	39.10	11.90	136.00	646.00	510.00	0.79	3.75	1.33	1.84	2.79	262.92
+F2	L4	1	2	35.30	14.10	137.00	676.00	539.00	0.80	3.93	1.82	2.30	2.44	359.55
+F2	L4	1	3	32.70	13.70	133.00	654.00	521.00	0.80	3.92	1.85	2.36	3.49	360.11
+F2	L4	1	4	34.70	13.30	131.00	707.00	576.00	0.81	4.40	1.09	2.35	2.32	476.15
+F2	L4	2	1	35.38	12.73	132.95	668.35	524.55	0.78	3.95	1.63	2.42	2.75	313.88
+F2	L4	2	2	35.71	13.59	134.22	665.15	521.83	0.78	3.89	1.36	2.08	2.40	317.59
+F2	L4	2	3	34.48	13.03	134.29	667.94	518.88	0.78	3.86	1.30	2.07	2.70	326.69
+F2	L4	2	4	34.57	12.32	133.04	657.10	539.28	0.82	4.05	1.63	2.28	2.38	326.29
+F2	L4	3	1	34.17	12.82	134.45	669.37	520.38	0.78	3.87	1.58	2.52	2.51	366.38
+F2	L4	3	2	34.35	13.16	135.42	657.75	532.49	0.81	3.93	1.31	2.63	2.51	293.15
+F2	L4	3	3	34.41	12.57	134.77	664.08	520.07	0.78	3.86	1.52	2.41	2.47	301.57
+F2	L4	3	4	33.61	12.87	132.31	671.75	532.07	0.79	4.02	1.74	2.28	2.48	305.44
+F2	L6	1	1	38.40	17.10	149.00	723.00	544.00	0.75	3.65	1.91	2.78	2.12	331.76
+F2	L6	1	2	36.80	16.40	146.00	670.00	522.00	0.78	3.58	1.42	2.16	3.04	373.57
+F2	L6	1	3	36.80	15.60	145.00	639.00	562.00	0.88	3.88	1.41	2.58	2.36	336.30
+F2	L6	1	4	33.80	11.30	122.00	724.00	545.00	0.75	4.47	1.77	2.40	3.64	340.57
+F2	L6	2	1	34.98	13.18	144.81	687.67	544.18	0.79	3.76	1.68	2.42	2.81	338.21
+F2	L6	2	2	37.03	13.22	131.23	708.17	545.09	0.77	4.15	1.39	2.48	2.57	336.19
+F2	L6	2	3	35.45	14.29	135.46	696.69	535.25	0.77	3.95	1.42	2.36	2.91	334.81
+F2	L6	2	4	34.91	14.19	146.71	676.49	546.09	0.81	3.72	1.58	2.31	2.78	340.88
+F2	L6	3	1	37.20	14.72	131.21	710.25	536.93	0.76	4.09	1.58	2.42	2.31	340.36
+F2	L6	3	2	36.62	16.52	144.56	707.82	540.60	0.76	3.74	1.52	2.39	2.57	341.57
+F2	L6	3	3	36.44	12.51	139.79	704.81	540.46	0.77	3.87	1.41	2.34	2.51	334.69
+F2	L6	3	4	36.27	13.35	130.16	671.92	536.88	0.80	4.12	1.40	1.81	2.73	334.65
+F2	L8	1	1	39.40	16.40	141.00	727.00	578.00	0.80	4.10	1.59	2.30	3.54	357.95
+F2	L8	1	2	39.60	16.40	143.00	707.00	561.00	0.79	3.92	1.22	2.32	2.08	288.62
+F2	L8	1	3	36.20	12.90	140.00	730.00	585.00	0.80	4.18	1.56	2.53	3.41	341.16
+F2	L8	1	4	38.00	17.50	157.00	689.00	567.00	0.82	3.61	2.23	3.21	4.47	392.45
+F2	L8	2	1	37.13	16.39	141.88	707.52	567.64	0.80	4.00	1.56	2.36	2.72	340.31
+F2	L8	2	2	39.07	13.81	142.28	722.24	570.88	0.79	4.01	1.50	2.53	2.51	314.64
+F2	L8	2	3	37.53	14.77	144.07	704.98	570.81	0.81	3.96	1.47	2.50	3.42	359.07
+F2	L8	2	4	38.04	15.67	143.45	717.61	575.17	0.80	4.01	1.56	2.55	2.72	329.98
+F2	L8	3	1	39.09	14.53	140.11	701.86	571.63	0.81	4.08	1.46	2.57	2.64	338.68
+F2	L8	3	2	38.23	15.08	143.81	700.86	575.91	0.82	4.00	1.45	2.39	3.31	355.60
+F2	L8	3	3	37.76	15.61	142.99	705.72	566.36	0.80	3.96	1.37	2.41	3.09	329.64
+F2	L8	3	4	37.63	16.29	143.56	710.10	571.13	0.80	3.98	1.68	2.39	2.76	358.95
+
+")
+
+
+```
+
+
+
+### **Modelo 1**\
+
+
+```{r}
+dados |> 
+  # Realizar o agrupamento dos dados por FMICO e LIRRIG
+  group_by(FMICO, LIRRIG) |> 
+  # Calcular as estatísticas resumidas (média e erro padrão) para a coluna CLOA dentro de cada grupo
+  get_summary_stats(CLOA, type = "mean_se") |> 
+  
+  # Criar o gráfico de barras com barras de erro
+  ggplot(aes(x = FMICO, y = mean, fill = LIRRIG)) +
+  # Adicionar as barras de dados
+  geom_bar(stat = "identity", position = "dodge") +
+  # Adicionar as barras de erro
+  geom_errorbar(aes(ymax = mean + se, ymin = mean - se), 
+                position = position_dodge(0.9), width = 0.2)+
+  # Definir estilo do gráfico
+  theme_bw()
+
+```
+
+
+
+----
+
+### **Modelo 2**\
+
+
+Alterando título dos eixos X e Y e alterando cores das barras:  
+
+
+```{r}
+dados |> 
+  # Realizar o agrupamento dos dados por FMICO e LIRRIG
+  group_by(FMICO, LIRRIG) |> 
+  # Calcular as estatísticas resumidas (média e erro padrão) para a coluna CLOA dentro de cada grupo
+  get_summary_stats(CLOA, #Selcionar a variável
+                    type = "mean_se") |> #definir o tipo de estatística (média±erro-padrão)
+  
+  # Criar o gráfico de barras com barras de erro
+  ggplot(aes(x = FMICO, y = mean, fill = LIRRIG)) +
+  
+  # Adicionar as barras de dados
+  geom_bar(stat = "identity", #define que a altura das barras seja a média
+           position = "dodge", #define que as barras fiquem lado a lado
+           color = "black") + #Adiciona cotorno preto às barras
+  
+  # Escolha as cores das barras manualmente (pode usar nome da cor ou código hexadecimal)
+    scale_fill_manual(values = c("red", "#555555", "#ffffff")) +  
+  
+  # Adicionar as barras de erro
+  geom_errorbar(aes(ymax = mean + se, ymin = mean - se), 
+                position = position_dodge(0.9), width = 0.2)+
+  # Definir estilo do gráfico
+  theme_bw()+
+  
+  #Altera título do eixo X
+  xlab("Nome da variável FMICO")+
+  
+  #Altera título do eixo Y
+  ylab("Nome da variável CLOA")
+
+```
+
+----
+
+### **Modelo 3**\
+
+Adicionado letras nas barras:
+
+
+```{r}
+
+dados |> 
+  # Realizar o agrupamento dos dados por FMICO e LIRRIG
+  group_by(FMICO, LIRRIG) |> 
+  # Calcular as estatísticas resumidas (média e erro padrão) para a coluna CLOA dentro de cada grupo
+  get_summary_stats(CLOA, #Selcionar a variável
+                    type = "mean_se") |> #definir o tipo de estatística (média±erro-padrão)
+  
+  # Criar o gráfico de barras com barras de erro
+  ggplot(aes(x = FMICO, y = mean, fill = LIRRIG)) +
+  
+  # Adicionar as barras de dados
+  geom_bar(stat = "identity", #define que a altura das barras seja a média
+           position = "dodge", #define que as barras fiquem lado a lado
+           color = "black") + #Adiciona cotorno preto às barras
+  
+  # Escolha as cores das barras manualmente (pode usar nome da cor ou código hexadecimal)
+    scale_fill_manual(values = c("red", "#555555", "#ffffff")) +  
+  
+  # Adicionar as barras de erro
+  geom_errorbar(aes(ymax = mean + se, ymin = mean - se), 
+                position = position_dodge(0.9), width = 0.2)+
+  # Definir estilo do gráfico
+  theme_bw()+
+  
+  #Altera título do eixo X
+  xlab("Nome da variável FMICO")+
+  
+  #Altera título do eixo Y
+  ylab("Nome da variável CLOA")+
+  
+  ylim(0,50)+ #AUmentando a escala de Y para caber as letras no gráfico
+
+  # Adiocionar letras acima das barras
+  geom_text(aes(label = c(
+    "a",#1
+    "b",#2
+    "c",#3
+    "d",#4
+    "e",#5
+    "f",#6
+    "g",#7
+    "h",#8
+    "i" #9
+    
+    )),position = position_dodge(1), vjust = -1)
+
+```
+
+----
+
+### **Modelo 4**\
+
+Reduzindo a escala do gráfica\
+
+
+```{r}
+
+dados |> 
+  # Realizar o agrupamento dos dados por FMICO e LIRRIG
+  group_by(FMICO, LIRRIG) |> 
+  # Calcular as estatísticas resumidas (média e erro padrão) para a coluna CLOA dentro de cada grupo
+  get_summary_stats(CLOA, #Selcionar a variável
+                    type = "mean_se") |> #definir o tipo de estatística (média±erro-padrão)
+  
+  # Criar o gráfico de barras com barras de erro
+  ggplot(aes(x = FMICO, y = mean, fill = LIRRIG)) +
+  
+  # Adicionar as barras de dados
+  geom_bar(stat = "identity", #define que a altura das barras seja a média
+           position = "dodge", #define que as barras fiquem lado a lado
+           color = "black") + #Adiciona cotorno preto às barras
+  
+  # Escolha as cores das barras manualmente (pode usar nome da cor ou código hexadecimal)
+    scale_fill_manual(values = c("red", "#555555", "#ffffff")) +  
+  
+  # Adicionar as barras de erro
+  geom_errorbar(aes(ymax = mean + se, ymin = mean - se), 
+                position = position_dodge(0.9), width = 0.2)+
+  # Definir estilo do gráfico
+  theme_bw()+
+  
+  #Altera título do eixo X
+  xlab("Nome da variável FMICO")+
+  
+  #Altera título do eixo Y
+  ylab("Nome da variável CLOA")+
+  
+  #Aumentando a escala de Y para caber as letras no gráfico
+  #Usando coord_cartesian para definir o range e não subir as barras
+  coord_cartesian(ylim = c(20, 50))+ 
+
+  # Adiocionar letras acima das barras
+  geom_text(aes(label = c(
+    "a",#1
+    "b",#2
+    "c",#3
+    "d",#4
+    "e",#5
+    "f",#6
+    "g",#7
+    "h",#8
+    "i" #9
+    
+    )),position = position_dodge(1), vjust = -1)
+
+
+
+
+
+```
+
+
+
+

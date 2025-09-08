@@ -1,11 +1,22 @@
 ---
-title: "site"
+title: "Bem vindo!"
+about:
+  id: hero-heading
+  template: jolla
+  image: midia/logo_pagina.png
+format:
+  html:
+    include-in-header:
+      - text: |
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 ---
 
-This is a Quarto website.
+::: {#hero-heading}
+O que você encontra por aqui:
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+-   **Curso de R**: aulas práticas de programação, análise de dados e visualização.\
+-   **Recursos e ferramentas**: scripts, códigos de exemplo e materiais para facilitar seu aprendizado.\
+-   **Blog e tutoriais**: conteúdos sobre estatística aplicada, experimentação agrícola e melhores práticas em pesquisa.
 
-```{r}
-1 + 1
-```
+Acompanhe e explore o site para **aprender, praticar e aplicar R na sua pesquisa agrícola**!
+:::

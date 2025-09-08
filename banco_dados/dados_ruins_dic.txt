@@ -1,0 +1,21 @@
+Tratamento	Repetição	Altura da planta (cm)	Peso fresco (g)
+ Testemunha	1	160	280
+ Testemunha	2	165	300
+ Testemunha	3	158	290
+ Testemunha	4	162	295
+ Testemunha	5	161	285
+ 50kg N	1	180	360
+ 50kg N	2	185	370
+ 50kg N	3	178	365
+ 50kg N	4	182	368
+ 50kg N	5	184	362
+ 100kg N	1	200	450
+ 100kg N	2	205	460
+ 100kg N	3	198	455
+ 100kg N	4	202	465
+ 100kg N	5	201	458
+ 150kg N	1	220	550
+ 150kg N	2	225	560
+ 150kg N	3	218	545
+ 150kg N	4	222	555
+ 150kg N	5	221	548

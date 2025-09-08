@@ -2,20 +2,39 @@ project:
   type: website
 
 website:
-  title: "site"
+  title: "Soluções em Curso"
   navbar:
     left:
       - href: index.qmd
-        text: Home
-      - about.qmd
+        text: "Página inicial"
+      - text: "Curso de R"  
+        menu:
+          - text: "Apresentação do curso"
+            href: apresentacao.qmd
+          - text: "Primeiros passos"
+            href: codigos.qmd
+          - text: "Construindo gráficos"
+            href: graficos.qmd
+          - text: "Aulas ministradas"
+            href: aulas.qmd
+          - text: "Atividades"
+            href: atividades.qmd
+      - href: about.qmd
+        text: "Sobre mim"
+    right:
+      - href: "https://github.com/Marlenildo"
+        text: '<i class="fab fa-github"></i>'
+      - href: "https://www.linkedin.com/in/marlenildoferreiramelo"
+        text: '<i class="fab fa-linkedin"></i>'
 
 format:
   html:
     theme:
-      - cosmo
-      - brand
-    css: styles.css
+      light: flatly
+      dark: darkly
     toc: true
-
+    include-in-header: 
+      - text: |
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
