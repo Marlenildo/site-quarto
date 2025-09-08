@@ -20,7 +20,13 @@ website:
           - text: "Aulas ministradas"
             href: aulas.qmd
           - text: "Atividades"
-            href: atividades.qmd
+            href: atividades.qmd  
+          - text: "Atividades"
+            href: atividades.qmd  
+      - text: "Ferramentas"  
+        menu:
+          - text: "Gerar regressão"
+            href: app.qmd  
       - href: about.qmd
         text: "Sobre mim"
     right:
@@ -34,6 +40,7 @@ format:
     theme:
       light: flatly
       dark: darkly
+    css: styles.css   # <- aqui você coloca o arquivo CSS
     toc: true
     include-in-header: 
       - text: |

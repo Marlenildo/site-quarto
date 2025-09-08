@@ -180,5 +180,12 @@
     "title": "Atividades",
     "section": "",
     "text": "Desafios e exercícios à frente!\n\n\nDesenvolva as atividades a seguir e fortaleça suas habilidades em R.\n\n\n\nAtividade 1\nNesta atividade você deverá buscar um banco de dados, exportar para o Excel e, dentro do Excel, identificar os tipos de variáveis.\n\nProcure e selecione um banco de dados (de sites abertos ou de outra fonte confiável).\n\nExporte o banco de dados para o Excel (formato .xlsx).\n\nAbra o banco no Excel.\n\nAnalise cada coluna e classifique o tipo de variável:\n\nNumérica (valores inteiros ou decimais)\n\nTexto / Caractere (nomes, palavras, descrições)\n\nLógica (valores Verdadeiro/Falso ou Sim/Não)\n\nCategórica / Fator (classes ou categorias, como tratamentos, cidades, espécies etc.)\n\n\nCrie uma tabela resumo no Excel com as seguintes colunas:\n\nNome da variável\n\nTipo identificado\n\nJustificativa (por que é desse tipo)\n\n\n\n👉 Essa atividade vai treinar a percepção dos diferentes tipos de variáveis e a organização de informações em planilhas."
+  },
+  {
+    "objectID": "app.html",
+    "href": "app.html",
+    "title": "Central de Ferramentas",
+    "section": "",
+    "text": "Clique em qualquer ferramenta para abrir o app:\n\n\n📈 Regressão Linear\nPermite calcular a equação linear e R² a partir de dados X e Y.\n🔢 Ferramenta 2\nDescrição curta e objetiva da ferramenta 2.\n📊 Ferramenta 3\nDescrição da ferramenta 3, mostrando sua função principal."
   }
 ]
