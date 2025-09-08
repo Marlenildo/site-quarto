@@ -1,5 +1,7 @@
 project:
   type: website
+  resources:
+    - ads.txt
 
 website:
   title: "Soluções em Curso"
@@ -36,5 +38,11 @@ format:
     include-in-header: 
       - text: |
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+adsense:
+  publisher-id: ca-pub-3130340973057636
+
+filters:
+  - adsense
 
 
