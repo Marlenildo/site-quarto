@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Marlenildo Melo">
 
-<title>Curso de Estatística com R para Experimentação Agrícola</title>
+<title>Central de Ferramentas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -61,17 +60,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Nenhum resultado",
-    "search-matching-documents-text": "documentos correspondentes",
-    "search-copy-link-title": "Copiar link para a busca",
-    "search-hide-matches-text": "Esconder correspondências adicionais",
-    "search-more-match-text": "mais correspondência neste documento",
-    "search-more-matches-text": "mais correspondências neste documento",
-    "search-clear-button-title": "Limpar",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar",
-    "search-label": "Procurar"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -255,8 +254,8 @@ ul.task-list li input[type="checkbox"] {
     <img src="./logo_script/logo_navbar2.png" alt="" class="navbar-logo dark-content">
     </a>
   </div>
-            <div id="quarto-search" class="" title="Procurar"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -293,7 +292,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./ferramentas.html"> 
+    <a class="nav-link active" href="./ferramentas.html" aria-current="page"> 
 <span class="menu-text">Ferramentas</span></a>
   </li>  
   <li class="nav-item">
@@ -313,7 +312,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -322,56 +321,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Nesta página</h2>
-   
-  <ul>
-  <li><a href="#apresentação-do-curso" id="toc-apresentação-do-curso" class="nav-link active" data-scroll-target="#apresentação-do-curso"><i class="fa-solid fa-book"></i> Apresentação do Curso</a>
-  <ul class="collapse">
-  <li><a href="#módulo-1-introdução-ao-r-e-organização-de-dados-semanas-1-2" id="toc-módulo-1-introdução-ao-r-e-organização-de-dados-semanas-1-2" class="nav-link" data-scroll-target="#módulo-1-introdução-ao-r-e-organização-de-dados-semanas-1-2">Módulo 1 – Introdução ao R e Organização de Dados (Semanas 1-2)</a>
-  <ul class="collapse">
-  <li><a href="#aula-1-apresentação-do-curso-instalação-do-r-e-rstudio" id="toc-aula-1-apresentação-do-curso-instalação-do-r-e-rstudio" class="nav-link" data-scroll-target="#aula-1-apresentação-do-curso-instalação-do-r-e-rstudio">Aula 1: Apresentação do curso + Instalação do R e RStudio</a></li>
-  <li><a href="#aula-2-primeiros-passos-no-r" id="toc-aula-2-primeiros-passos-no-r" class="nav-link" data-scroll-target="#aula-2-primeiros-passos-no-r">Aula 2: Primeiros passos no R</a></li>
-  <li><a href="#aula-3-instalação-e-uso-de-pacotes" id="toc-aula-3-instalação-e-uso-de-pacotes" class="nav-link" data-scroll-target="#aula-3-instalação-e-uso-de-pacotes">Aula 3: Instalação e uso de pacotes</a></li>
-  <li><a href="#aula-4-organização-de-dados" id="toc-aula-4-organização-de-dados" class="nav-link" data-scroll-target="#aula-4-organização-de-dados">Aula 4: Organização de dados</a></li>
-  </ul></li>
-  <li><a href="#módulo-2-manipulação-e-exploração-de-dados-semanas-3-4" id="toc-módulo-2-manipulação-e-exploração-de-dados-semanas-3-4" class="nav-link" data-scroll-target="#módulo-2-manipulação-e-exploração-de-dados-semanas-3-4">Módulo 2 – Manipulação e Exploração de Dados (Semanas 3-4)</a>
-  <ul class="collapse">
-  <li><a href="#aula-5-tidyverse-para-manipulação" id="toc-aula-5-tidyverse-para-manipulação" class="nav-link" data-scroll-target="#aula-5-tidyverse-para-manipulação">Aula 5: tidyverse para manipulação</a></li>
-  <li><a href="#aula-6-estatística-descritiva" id="toc-aula-6-estatística-descritiva" class="nav-link" data-scroll-target="#aula-6-estatística-descritiva">Aula 6: Estatística descritiva</a></li>
-  <li><a href="#aula-7-gráficos-com-ggplot2" id="toc-aula-7-gráficos-com-ggplot2" class="nav-link" data-scroll-target="#aula-7-gráficos-com-ggplot2">Aula 7: Gráficos com ggplot2</a></li>
-  <li><a href="#aula-8-introdução-aos-delineamentos-experimentais" id="toc-aula-8-introdução-aos-delineamentos-experimentais" class="nav-link" data-scroll-target="#aula-8-introdução-aos-delineamentos-experimentais">Aula 8: Introdução aos delineamentos experimentais</a></li>
-  </ul></li>
-  <li><a href="#módulo-3-análise-de-variância-anova-semanas-5-8" id="toc-módulo-3-análise-de-variância-anova-semanas-5-8" class="nav-link" data-scroll-target="#módulo-3-análise-de-variância-anova-semanas-5-8">Módulo 3 – Análise de Variância (ANOVA) (Semanas 5-8)</a>
-  <ul class="collapse">
-  <li><a href="#aula-9-anova-em-dic" id="toc-aula-9-anova-em-dic" class="nav-link" data-scroll-target="#aula-9-anova-em-dic">Aula 9: ANOVA em DIC</a></li>
-  <li><a href="#aula-10-anova-em-dbc" id="toc-aula-10-anova-em-dbc" class="nav-link" data-scroll-target="#aula-10-anova-em-dbc">Aula 10: ANOVA em DBC</a></li>
-  <li><a href="#aula-11-testes-de-pressupostos" id="toc-aula-11-testes-de-pressupostos" class="nav-link" data-scroll-target="#aula-11-testes-de-pressupostos">Aula 11: Testes de pressupostos</a></li>
-  <li><a href="#aula-12-testes-de-comparação-de-médias" id="toc-aula-12-testes-de-comparação-de-médias" class="nav-link" data-scroll-target="#aula-12-testes-de-comparação-de-médias">Aula 12: Testes de comparação de médias</a></li>
-  <li><a href="#aula-13-anova-em-esquemas-fatoriais" id="toc-aula-13-anova-em-esquemas-fatoriais" class="nav-link" data-scroll-target="#aula-13-anova-em-esquemas-fatoriais">Aula 13: ANOVA em esquemas fatoriais</a></li>
-  <li><a href="#aula-14-anova-em-parcela-subdividida" id="toc-aula-14-anova-em-parcela-subdividida" class="nav-link" data-scroll-target="#aula-14-anova-em-parcela-subdividida">Aula 14: ANOVA em parcela subdividida</a></li>
-  <li><a href="#aula-15-como-reportar-resultados-da-anova" id="toc-aula-15-como-reportar-resultados-da-anova" class="nav-link" data-scroll-target="#aula-15-como-reportar-resultados-da-anova">Aula 15: Como reportar resultados da ANOVA</a></li>
-  <li><a href="#aula-16-exercícios-práticos-comparando-pacotes" id="toc-aula-16-exercícios-práticos-comparando-pacotes" class="nav-link" data-scroll-target="#aula-16-exercícios-práticos-comparando-pacotes">Aula 16: Exercícios práticos comparando pacotes</a></li>
-  </ul></li>
-  <li><a href="#módulo-4-regressão-e-modelos-semanas-9-11" id="toc-módulo-4-regressão-e-modelos-semanas-9-11" class="nav-link" data-scroll-target="#módulo-4-regressão-e-modelos-semanas-9-11">Módulo 4 – Regressão e Modelos (Semanas 9-11)</a>
-  <ul class="collapse">
-  <li><a href="#aula-17-introdução-à-regressão-linear" id="toc-aula-17-introdução-à-regressão-linear" class="nav-link" data-scroll-target="#aula-17-introdução-à-regressão-linear">Aula 17: Introdução à regressão linear</a></li>
-  <li><a href="#aula-18-regressão-polinomial" id="toc-aula-18-regressão-polinomial" class="nav-link" data-scroll-target="#aula-18-regressão-polinomial">Aula 18: Regressão polinomial</a></li>
-  <li><a href="#aula-19-seleção-de-modelos" id="toc-aula-19-seleção-de-modelos" class="nav-link" data-scroll-target="#aula-19-seleção-de-modelos">Aula 19: Seleção de modelos</a></li>
-  <li><a href="#aula-20-regressão-não-linear" id="toc-aula-20-regressão-não-linear" class="nav-link" data-scroll-target="#aula-20-regressão-não-linear">Aula 20: Regressão não linear</a></li>
-  <li><a href="#aula-21-regressão-logística-ex.-dados-de-presençaausência" id="toc-aula-21-regressão-logística-ex.-dados-de-presençaausência" class="nav-link" data-scroll-target="#aula-21-regressão-logística-ex.-dados-de-presençaausência">Aula 21: Regressão logística (ex.: dados de presença/ausência)</a></li>
-  <li><a href="#aula-22-exercícios-práticos-de-regressão-com-dados-agrícolas" id="toc-aula-22-exercícios-práticos-de-regressão-com-dados-agrícolas" class="nav-link" data-scroll-target="#aula-22-exercícios-práticos-de-regressão-com-dados-agrícolas">Aula 22: Exercícios práticos de regressão com dados agrícolas</a></li>
-  </ul></li>
-  <li><a href="#módulo-5-encerramento-e-projeto-final-semana-12" id="toc-módulo-5-encerramento-e-projeto-final-semana-12" class="nav-link" data-scroll-target="#módulo-5-encerramento-e-projeto-final-semana-12">Módulo 5 – Encerramento e Projeto Final (Semana 12)</a>
-  <ul class="collapse">
-  <li><a href="#aula-23-como-estruturar-um-relatório-científico-no-r" id="toc-aula-23-como-estruturar-um-relatório-científico-no-r" class="nav-link" data-scroll-target="#aula-23-como-estruturar-um-relatório-científico-no-r">Aula 23: Como estruturar um relatório científico no R</a></li>
-  <li><a href="#aula-24-projeto-final" id="toc-aula-24-projeto-final" class="nav-link" data-scroll-target="#aula-24-projeto-final">Aula 24: Projeto final</a></li>
-  </ul></li>
-  <li><a href="#cronograma-resumido-atualizado" id="toc-cronograma-resumido-atualizado" class="nav-link" data-scroll-target="#cronograma-resumido-atualizado">📅 Cronograma Resumido (Atualizado)</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -379,26 +330,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Curso de Estatística com R para Experimentação Agrícola</h1>
+<h1 class="title">Central de Ferramentas</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor</div>
-    <div class="quarto-title-meta-contents">
-             <p>Marlenildo Melo </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Data de Publicação</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">21 de agosto de 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -408,238 +347,15 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="apresentação-do-curso" class="level1 tabset">
-<h1 class="tabset"><i class="fa-solid fa-book"></i> Apresentação do Curso</h1>
-<p>Este material serve como guia para o curso <strong>Estatística com R para Experimentação Agrícola</strong>.<br>
-Cada aula contém <strong>explicações teóricas resumidas</strong> e <strong>códigos práticos</strong> para serem executados no RStudio.</p>
-<section id="módulo-1-introdução-ao-r-e-organização-de-dados-semanas-1-2" class="level2">
-<h2 class="anchored" data-anchor-id="módulo-1-introdução-ao-r-e-organização-de-dados-semanas-1-2">Módulo 1 – Introdução ao R e Organização de Dados (Semanas 1-2)</h2>
-<p><strong>Objetivo:</strong> Familiarizar o aluno com R, RStudio e a preparação correta dos dados.</p>
-<section id="aula-1-apresentação-do-curso-instalação-do-r-e-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="aula-1-apresentação-do-curso-instalação-do-r-e-rstudio">Aula 1: Apresentação do curso + Instalação do R e RStudio</h3>
-<ul>
-<li>O que é R e RStudio</li>
-<li>Instalação passo a passo</li>
-<li>Estrutura do RStudio (console, script, environment, plots, packages)</li>
-</ul>
-</section>
-<section id="aula-2-primeiros-passos-no-r" class="level3">
-<h3 class="anchored" data-anchor-id="aula-2-primeiros-passos-no-r">Aula 2: Primeiros passos no R</h3>
-<ul>
-<li>Comandos básicos</li>
-<li>Operadores aritméticos e lógicos</li>
-<li>Criando e manipulando objetos</li>
-</ul>
-</section>
-<section id="aula-3-instalação-e-uso-de-pacotes" class="level3">
-<h3 class="anchored" data-anchor-id="aula-3-instalação-e-uso-de-pacotes">Aula 3: Instalação e uso de pacotes</h3>
-<ul>
-<li><code>install.packages()</code>, <code>library()</code></li>
-<li>Pacotes úteis: <code>tidyverse</code>, <code>readxl</code>, <code>agricolae</code>, <code>emmeans</code>, <code>broom</code>, <code>ggplot2</code></li>
-<li>Como procurar ajuda e documentação</li>
-</ul>
-</section>
-<section id="aula-4-organização-de-dados" class="level3">
-<h3 class="anchored" data-anchor-id="aula-4-organização-de-dados">Aula 4: Organização de dados</h3>
-<ul>
-<li>Como estruturar dados no Excel (linhas = observações, colunas = variáveis)</li>
-<li>Importação de arquivos (.csv, .xlsx, .txt)</li>
-<li>Uso de <code>read.csv()</code>, <code>readxl::read_excel()</code>, <code>read.table()</code></li>
-<li>Verificação e limpeza dos dados (<code>head()</code>, <code>str()</code>, <code>summary()</code>)</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="módulo-2-manipulação-e-exploração-de-dados-semanas-3-4" class="level2">
-<h2 class="anchored" data-anchor-id="módulo-2-manipulação-e-exploração-de-dados-semanas-3-4">Módulo 2 – Manipulação e Exploração de Dados (Semanas 3-4)</h2>
-<p><strong>Objetivo:</strong> Aprender a organizar, transformar e explorar dados antes da análise.</p>
-<section id="aula-5-tidyverse-para-manipulação" class="level3">
-<h3 class="anchored" data-anchor-id="aula-5-tidyverse-para-manipulação">Aula 5: tidyverse para manipulação</h3>
-<ul>
-<li><code>dplyr</code>: <code>select()</code>, <code>filter()</code>, <code>mutate()</code>, <code>summarise()</code>, <code>group_by()</code></li>
-<li><code>tidyr</code>: <code>pivot_longer()</code>, <code>pivot_wider()</code></li>
-</ul>
-</section>
-<section id="aula-6-estatística-descritiva" class="level3">
-<h3 class="anchored" data-anchor-id="aula-6-estatística-descritiva">Aula 6: Estatística descritiva</h3>
-<ul>
-<li>Médias, desvios-padrão, erro-padrão</li>
-<li>Tabelas resumo com <code>dplyr</code></li>
-<li>Visualizações iniciais: histogramas, boxplots, gráficos de barras</li>
-</ul>
-</section>
-<section id="aula-7-gráficos-com-ggplot2" class="level3">
-<h3 class="anchored" data-anchor-id="aula-7-gráficos-com-ggplot2">Aula 7: Gráficos com ggplot2</h3>
-<ul>
-<li>Estrutura do <code>ggplot2</code></li>
-<li>Gráficos básicos aplicados a dados de experimentação agrícola</li>
-<li>Personalização de gráficos</li>
-</ul>
-</section>
-<section id="aula-8-introdução-aos-delineamentos-experimentais" class="level3">
-<h3 class="anchored" data-anchor-id="aula-8-introdução-aos-delineamentos-experimentais">Aula 8: Introdução aos delineamentos experimentais</h3>
-<ul>
-<li>Delineamentos básicos: DIC, DBC</li>
-<li>Estrutura dos dados em experimentação agrícola</li>
-<li>Preparação dos dados no Excel para cada delineamento</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="módulo-3-análise-de-variância-anova-semanas-5-8" class="level2">
-<h2 class="anchored" data-anchor-id="módulo-3-análise-de-variância-anova-semanas-5-8">Módulo 3 – Análise de Variância (ANOVA) (Semanas 5-8)</h2>
-<p><strong>Objetivo:</strong> Ensinar a rodar ANOVA, verificar pressupostos e interpretar resultados, utilizando diferentes pacotes.</p>
-<section id="aula-9-anova-em-dic" class="level3">
-<h3 class="anchored" data-anchor-id="aula-9-anova-em-dic">Aula 9: ANOVA em DIC</h3>
-<ul>
-<li>Funções base: <code>aov()</code></li>
-<li>ANOVA com <code>ExpDes.pt</code> (<code>dic()</code>)</li>
-<li>ANOVA com <code>easyanova</code></li>
-</ul>
-</section>
-<section id="aula-10-anova-em-dbc" class="level3">
-<h3 class="anchored" data-anchor-id="aula-10-anova-em-dbc">Aula 10: ANOVA em DBC</h3>
-<ul>
-<li>Funções base: <code>aov()</code></li>
-<li>ANOVA com <code>ExpDes.pt</code> (<code>dbc()</code>)</li>
-<li>Comparação da saída entre pacotes</li>
-</ul>
-</section>
-<section id="aula-11-testes-de-pressupostos" class="level3">
-<h3 class="anchored" data-anchor-id="aula-11-testes-de-pressupostos">Aula 11: Testes de pressupostos</h3>
-<ul>
-<li>Normalidade dos resíduos: <code>shapiro.test()</code>, <code>rstatix::shapiro_test()</code></li>
-<li>Homogeneidade: <code>bartlett.test()</code>, <code>car::leveneTest()</code>, <code>rstatix::levene_test()</code></li>
-<li>Interpretação prática</li>
-</ul>
-</section>
-<section id="aula-12-testes-de-comparação-de-médias" class="level3">
-<h3 class="anchored" data-anchor-id="aula-12-testes-de-comparação-de-médias">Aula 12: Testes de comparação de médias</h3>
-<ul>
-<li><code>TukeyHSD()</code> (base R)</li>
-<li><code>ExpDes.pt</code> (já integrado à ANOVA)</li>
-<li><code>emmeans</code> + <code>cld()</code></li>
-<li><code>rstatix::t_test()</code> e <code>rstatix::anova_test()</code></li>
-</ul>
-</section>
-<section id="aula-13-anova-em-esquemas-fatoriais" class="level3">
-<h3 class="anchored" data-anchor-id="aula-13-anova-em-esquemas-fatoriais">Aula 13: ANOVA em esquemas fatoriais</h3>
-<ul>
-<li>Dois fatores com <code>aov()</code></li>
-<li>Dois fatores com <code>ExpDes.pt::fat2.dic()</code> e <code>fat2.dbc()</code></li>
-<li>Interpretação das interações</li>
-</ul>
-</section>
-<section id="aula-14-anova-em-parcela-subdividida" class="level3">
-<h3 class="anchored" data-anchor-id="aula-14-anova-em-parcela-subdividida">Aula 14: ANOVA em parcela subdividida</h3>
-<ul>
-<li>Estrutura de dados</li>
-<li><code>ExpDes.pt::psub2.dbc()</code> (ou funções equivalentes)</li>
-<li>Modelos mistos com <code>lme4::lmer()</code></li>
-</ul>
-</section>
-<section id="aula-15-como-reportar-resultados-da-anova" class="level3">
-<h3 class="anchored" data-anchor-id="aula-15-como-reportar-resultados-da-anova">Aula 15: Como reportar resultados da ANOVA</h3>
-<ul>
-<li><code>broom::tidy()</code> para organizar tabelas</li>
-<li>Exportação de resultados com <code>rstatix</code> (<code>get_anova_table()</code>)</li>
-<li>Apresentação de médias e letras com <code>agricolae</code>, <code>emmeans</code> e <code>ExpDes.pt</code></li>
-</ul>
-</section>
-<section id="aula-16-exercícios-práticos-comparando-pacotes" class="level3">
-<h3 class="anchored" data-anchor-id="aula-16-exercícios-práticos-comparando-pacotes">Aula 16: Exercícios práticos comparando pacotes</h3>
-<ul>
-<li>Mesmos dados analisados em <code>aov()</code>, <code>ExpDes.pt</code>, <code>easyanova</code> e <code>rstatix</code></li>
-<li>Discussão: qual usar em cada situação</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="módulo-4-regressão-e-modelos-semanas-9-11" class="level2">
-<h2 class="anchored" data-anchor-id="módulo-4-regressão-e-modelos-semanas-9-11">Módulo 4 – Regressão e Modelos (Semanas 9-11)</h2>
-<p><strong>Objetivo:</strong> Introduzir regressão e aplicações em experimentação agrícola.</p>
-<section id="aula-17-introdução-à-regressão-linear" class="level3">
-<h3 class="anchored" data-anchor-id="aula-17-introdução-à-regressão-linear">Aula 17: Introdução à regressão linear</h3>
-<ul>
-<li>Conceito, ajuste com <code>lm()</code></li>
-<li>Gráficos de regressão no <code>ggplot2</code></li>
-</ul>
-</section>
-<section id="aula-18-regressão-polinomial" class="level3">
-<h3 class="anchored" data-anchor-id="aula-18-regressão-polinomial">Aula 18: Regressão polinomial</h3>
-<ul>
-<li><code>lm(y ~ poly(x, 2))</code></li>
-<li>Aplicações em curvas de dose, tempo, crescimento</li>
-</ul>
-</section>
-<section id="aula-19-seleção-de-modelos" class="level3">
-<h3 class="anchored" data-anchor-id="aula-19-seleção-de-modelos">Aula 19: Seleção de modelos</h3>
-<ul>
-<li>Critérios AIC e BIC</li>
-<li>Comparação de modelos</li>
-</ul>
-</section>
-<section id="aula-20-regressão-não-linear" class="level3">
-<h3 class="anchored" data-anchor-id="aula-20-regressão-não-linear">Aula 20: Regressão não linear</h3>
-<ul>
-<li><code>nls()</code></li>
-<li>Ajuste de curvas de resposta à dose</li>
-</ul>
-</section>
-<section id="aula-21-regressão-logística-ex.-dados-de-presençaausência" class="level3">
-<h3 class="anchored" data-anchor-id="aula-21-regressão-logística-ex.-dados-de-presençaausência">Aula 21: Regressão logística (ex.: dados de presença/ausência)</h3>
-<ul>
-<li><code>glm(family = binomial)</code></li>
-<li>Exemplos em fitossanidade e sobrevivência</li>
-</ul>
-</section>
-<section id="aula-22-exercícios-práticos-de-regressão-com-dados-agrícolas" class="level3">
-<h3 class="anchored" data-anchor-id="aula-22-exercícios-práticos-de-regressão-com-dados-agrícolas">Aula 22: Exercícios práticos de regressão com dados agrícolas</h3>
-<hr>
-</section>
-</section>
-<section id="módulo-5-encerramento-e-projeto-final-semana-12" class="level2">
-<h2 class="anchored" data-anchor-id="módulo-5-encerramento-e-projeto-final-semana-12">Módulo 5 – Encerramento e Projeto Final (Semana 12)</h2>
-<p><strong>Objetivo:</strong> Consolidar o aprendizado com aplicações práticas.</p>
-<section id="aula-23-como-estruturar-um-relatório-científico-no-r" class="level3">
-<h3 class="anchored" data-anchor-id="aula-23-como-estruturar-um-relatório-científico-no-r">Aula 23: Como estruturar um relatório científico no R</h3>
-<ul>
-<li>Uso do RMarkdown</li>
-<li>Exportar para Word e PDF</li>
-<li>Organização dos resultados</li>
-</ul>
-</section>
-<section id="aula-24-projeto-final" class="level3">
-<h3 class="anchored" data-anchor-id="aula-24-projeto-final">Aula 24: Projeto final</h3>
-<p>Cada aluno analisa um banco de dados de experimentação agrícola.</p>
-<p>Entrega de relatório com:</p>
-<ul>
-<li>Estrutura dos dados</li>
-<li>ANOVA + testes de médias ou regressão</li>
-<li>Gráficos e tabelas</li>
-<li>Interpretação</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="cronograma-resumido-atualizado" class="level2">
-<h2 class="anchored" data-anchor-id="cronograma-resumido-atualizado">📅 Cronograma Resumido (Atualizado)</h2>
-<ul>
-<li><strong>Semanas 1-2</strong>: R, RStudio, pacotes, organização/importação de dados<br>
-</li>
-<li><strong>Semanas 3-4</strong>: Manipulação de dados, gráficos, delineamentos<br>
-</li>
-<li><strong>Semanas 5-8</strong>: ANOVA com base R, <code>ExpDes.pt</code>, <code>easyanova</code> e <code>rstatix</code><br>
-</li>
-<li><strong>Semanas 9-11</strong>: Regressão (linear, polinomial, não linear, logística)<br>
-</li>
-<li><strong>Semana 12</strong>: Relatórios e Projeto Final</li>
-</ul>
-<hr>
+<h4 class="anchored">
+Clique para acessar a ferramenta:
+</h4>
+<div class="apps">
+<p><a href="https://solutionsapp.shinyapps.io/regressaosimples/" class="app-btn" target="_blank"><i class="fas fa-chart-line"></i> <strong>Gerar Regressão Linear</strong><br>
+Permite gerar um gráfico de regressão linear simples contendo a equação e o coeficiente de determinação (R²) a partir de dados X e Y</a></p>
+</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -680,12 +396,12 @@ Cada aula contém <strong>explicações teóricas resumidas</strong> e <strong>c
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copiada");
+      button.setAttribute("title", "Copied!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copiada");
+        button.setAttribute("data-bs-title", "Copied!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

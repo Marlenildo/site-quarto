@@ -1,4 +1,151 @@
-/* css styles */
+/* ==============================
+   Variáveis globais de cor
+   ============================== */
+:root {
+  --primary-color: #6dd47e;    /* verde para destaque/ativo */
+  --secondary-color: #1f4e85;  /* azul escuro da navbar e hover */
+  --text-light: #ffffff;        /* texto claro */
+  --text-dark: #111111;         /* texto escuro */
+}
+
+/* ==============================
+   Corpo do site
+   ============================== */
+body {
+  background-color: #ffffff; /* fundo branco */
+  color: var(--text-dark);
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==============================
+   Navbar
+   ============================== */
+.navbar {
+  background-color: var(--secondary-color); /* azul sólido */
+  border-bottom: none;
+  padding: 0.6rem 1rem;
+  position: relative;
+  z-index: 1000;
+}
+
+/* Links da navbar */
+.navbar a,
+.navbar .navbar-brand {
+  color: var(--text-light); /* branco */
+  text-decoration: none;
+}
+
+/* Hover dos links da navbar */
+.navbar a:hover {
+  color: var(--primary-color); /* verde */
+  font-weight: bold;
+}
+
+/* ==============================
+   Menu dropdown
+   ============================== */
+.navbar .dropdown-menu {
+  background-color: var(--secondary-color); /* fundo azul */
+  border: none; /* remove borda se houver */
+  min-width: 180px;
+  padding: 0.5rem 0;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Links dentro do dropdown */
+.navbar .dropdown-menu a {
+  color: var(--text-light); /* texto branco */
+  padding: 0.5rem 1rem;
+  display: block;
+}
+
+/* Hover nos links do dropdown */
+.navbar .dropdown-menu a:hover {
+  background-color: var(--primary-color); /* verde */
+  color: var(--text-light); /* mantém branco */
+  font-weight: bold;
+}
+
+
+/* ==============================
+   Footer full-width e conteúdo distribuído
+   ============================== */
+.page-footer {
+  width: 100%;
+  background-color: #ffffff;       /* fundo branco */
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-around;   /* distribui os itens na linha */
+  align-items: center;
+  flex-wrap: wrap;                 /* quebra em telas pequenas */
+  gap: 15px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Footer links e textos */
+.page-footer a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.page-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Footer imagens */
+.page-footer img {
+  max-height: 40px;
+  width: auto;
+  margin: 0 10px;
+}
+
+/* Responsivo: mobile */
+@media (max-width: 768px) {
+  .page-footer {
+    flex-direction: column;  /* empilha tudo verticalmente */
+    gap: 10px;
+  }
+
+  .page-footer a {
+    display: block;
+    margin: 5px 0;
+  }
+}
+
+
+/* ==============================
+   Títulos
+   ============================== */
+h1.title, h1, h2, h3 {
+  color: var(--secondary-color); /* azul */
+}
+
+/* ==============================
+   Hero Banner
+   ============================== */
+#hero-banner {
+  width: 100%;
+  background-color: var(--primary-color); /* verde */
+  color: var(--text-light);
+  padding: 60px 20px;
+  margin-bottom: 2rem;
+  text-align: center;
+  border-radius: 12px;
+}
+
+.hero-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ==============================
+   Botões de apps harmoniosos
+   ============================== */
 .apps {
   display: flex;
   flex-direction: column;
@@ -7,24 +154,19 @@
 
 .app-btn {
   display: flex;
-  flex-direction: row; /* desktop: ícone + texto à direita */
-  align-items: center; /* centraliza verticalmente o ícone */
+  flex-direction: row;
+  align-items: center;
   padding: 15px;
-  border: 1px solid #ccc;
+  border: 2px solid var(--secondary-color); /* azul */
   border-radius: 12px;
   text-decoration: none;
-  color: black;
-  transition: all 0.2s;
-  background-color: #f9f9f9;
-  height: 80px; /* altura fixa para uniformizar */
+  color: var(--secondary-color); /* azul escuro */
+  background-color: #ffffff;      /* fundo branco */
+  transition: all 0.25s ease;
+  height: 80px;
+  cursor: pointer;
 }
 
-.app-btn:hover {
-  background-color: #e0e0ff;
-  transform: scale(1.03);
-}
-
-/* Ícone */
 .app-btn .icon {
   font-size: 40px;
   margin-right: 15px;
@@ -33,34 +175,60 @@
   height: 100%;
 }
 
-/* Container do título + descrição */
 .app-btn .info {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* centraliza verticalmente */
-  height: 100%; /* ocupa a altura da caixa */
+  justify-content: center;
+  height: 100%;
 }
 
-/* Título */
 .app-btn .title {
   font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 5px;
+  font-weight: normal;
+  color: var(--secondary-color); /* azul */
+  transition: all 0.25s ease;
 }
 
-/* Descrição */
 .app-btn .desc {
   font-size: 14px;
   color: #555;
 }
 
-/* Responsivo: telas pequenas */
+/* Hover: fundo azul escuro, título verde e negrito */
+.app-btn:hover {
+  background-color: var(--secondary-color); /* azul */
+  color: var(--text-light);
+  transform: scale(1.03);
+}
+
+.app-btn:hover .title {
+  color: var(--primary-color); /* verde */
+  font-weight: bold;
+}
+
+/* Ativo/clicado: fundo verde, título verde e negrito */
+.app-btn:active {
+  background-color: var(--primary-color); /* verde */
+  color: var(--text-light);
+  transform: scale(0.98);
+}
+
+.app-btn:active .title {
+  color: var(--primary-color); /* verde */
+  font-weight: bold;
+}
+
+/* ==============================
+   Responsividade
+   ============================== */
 @media (max-width: 768px) {
   .app-btn {
     flex-direction: column;
     align-items: center;
-    height: auto; /* altura automática */
+    height: auto;
     text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
   }
   .app-btn .icon {
     margin-bottom: 10px;
@@ -69,4 +237,51 @@
     height: auto;
     justify-content: center;
   }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  footer a {
+    display: block;
+  }
+}
+
+
+
+/* ==============================
+   Tabelas harmoniosas compactas
+   ============================== */
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 13px;          /* um pouco menor */
+  font-family: Arial, sans-serif;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  background-color: #ffffff;
+}
+
+.styled-table th, 
+.styled-table td {
+  border: 1px solid #ddd;
+  padding: 6px 10px;        /* menos espaço interno */
+  text-align: center;       /* centraliza horizontal */
+  vertical-align: middle;   /* centraliza vertical */
+}
+
+.styled-table th {
+  background-color: var(--secondary-color); /* azul da navbar */
+  color: var(--text-light);                  /* branco */
+  font-weight: bold;
+}
+
+.styled-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* linhas pares mais claras */
+}
+
+.styled-table tr:hover {
+  background-color: var(--primary-color);  /* verde ao passar mouse */
+  color: var(--text-light);
 }

@@ -4,8 +4,9 @@ project:
     - ads.txt
 
 website:
-  title: "Soluções em Curso"
+  favicon: logo_script/favicon.png
   navbar:
+    logo: logo_script/logo_navbar2.png  # caminho da sua imagem
     left:
       - href: index.qmd
         text: "Página inicial"
@@ -21,12 +22,8 @@ website:
             href: aulas.qmd
           - text: "Atividades"
             href: atividades.qmd  
-          - text: "Atividades"
-            href: atividades.qmd  
-      - text: "Ferramentas"  
-        menu:
-          - text: "Gerar regressão"
-            href: app.qmd  
+      - href: ferramentas.qmd
+        text: "Ferramentas"  
       - href: about.qmd
         text: "Sobre mim"
     right:
@@ -34,7 +31,13 @@ website:
         text: '<i class="fab fa-github"></i>'
       - href: "https://www.linkedin.com/in/marlenildoferreiramelo"
         text: '<i class="fab fa-linkedin"></i>'
+  page-footer:
+    center: |
+      <div>[Página inicial](index.qmd)  |  [Primeiros passos](codigos.qmd)  |  [Sobre mim](about.qmd)</div>
+      <div><img src="logo_script/logo_index.png" alt="Logo" height="40"> © Marlenildo Melo - Soluções em Curso. 2025.</div>
+      <div>Este site foi desenvolvido utilizando a própria linguagem <i class="fa-brands fa-r-project"></i>.</div>
 
+      
 format:
   html:
     theme:

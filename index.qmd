@@ -3,12 +3,11 @@ title: "Bem vindo!"
 about:
   id: hero-heading
   template: jolla
-  image: midia/logo_pagina.png
+  image-shape: rectangle
+  image: logo_script/logo_index.png
+lang: "pt-BR"
 format:
-  html:
-    include-in-header:
-      - text: |
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  html
 ---
 
 ::: {#hero-heading}
@@ -20,3 +19,38 @@ O que você encontra por aqui:
 
 Acompanhe e explore o site para **aprender, praticar e aplicar R na sua pesquisa agrícola**!
 :::
+
+
+
+::: {#hero-banner}
+
+<h1> <i class="fa-solid fa-book"></i> Cursos disponíveis</h1>
+
+<p>
+Comece agora esmo a aprender a programar utilizando a linguagem R.
+</p>
+
+[<i class="fa-brands fa-r-project"></i>  **Aprenda estatística utilizando a linguagem R**  ](codigos.qmd){.app-btn target="_blank"}
+
+:::
+
+
+
+<br>
+
+
+::: {#hero-banner}
+
+<h1> <i class="fa-solid fa-desktop"></i> Ferramentas Interativas</h1>
+<p>
+Explore ferramentas práticas e interativas criadas para facilitar sua vida acadêmica e profissional.  
+Comece testando abaixo:
+</p>
+
+[<i class="fas fa-chart-line"></i> **Gerar Regressão Linear**  
+Permite gerar um gráfico de regressão linear simples contendo a equação e o coeficiente de determinação (R²) a partir de dados X e Y](https://solutionsapp.shinyapps.io/regressaosimples/){.app-btn target="_blank"}
+
+:::
+
+
+

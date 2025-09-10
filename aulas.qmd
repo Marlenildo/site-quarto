@@ -1,12 +1,11 @@
 ---
 title: "Aulas ministradas"
-about:
-  id: hero-heading
-  template: jolla
-format: html
+lang: "pt-BR"
+format:
+  html
 ---
 
-::: {#hero-heading}
+<!-- ::: {#hero-heading} -->
 Este documento apresenta a organização inicial das aulas do curso de R e RStudio.\
 O objetivo é guiar os estudantes desde a instalação dos programas até o uso prático de scripts, diretórios de trabalho, painéis do RStudio e os principais tipos de variáveis.
 
@@ -31,9 +30,10 @@ aulas_ministradas <- read_excel("banco_dados/aulas_ministradas.xlsx",
 
 ```
 
+
 ```{r}
 #| echo: false
-# Mostrar tabela formatada
+# Mostrar tabela estilizada no estilo do site
 aulas_ministradas |>
   mutate(
     Data = format(Data, "%d/%b/%Y", locale = "pt_BR.UTF-8"),
@@ -41,7 +41,16 @@ aulas_ministradas |>
     `Horário de fim da aula`    = format(`Horário de fim da aula`, "%H:%M"),
     `Número de horas` = round(`Número de horas`,2)
   ) |> 
-  kable(caption = "Aulas ministradas no Curso de Estatística com R para Experimentação Agrícola.") |> 
-  kable_paper(html_font = "Arial")
+  kable(
+    caption = "Aulas ministradas no Curso de Estatística com R para Experimentação Agrícola.",
+    format = "html",
+    table.attr = "class='styled-table'"
+  ) |> 
+  kable_styling(
+    html_font = "Arial",
+    full_width = TRUE,
+    position = "center"
+    )
+
 ```
-:::
+

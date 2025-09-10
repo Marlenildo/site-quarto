@@ -1,0 +1,17 @@
+---
+title: "Central de Ferramentas"
+format: html
+execute: 
+  echo: false
+---
+
+
+<h4> Clique para acessar a ferramenta: </h4>
+
+
+::: {.apps}
+
+[<i class="fas fa-chart-line"></i> **Gerar Regressão Linear**  
+Permite gerar um gráfico de regressão linear simples contendo a equação e o coeficiente de determinação (R²) a partir de dados X e Y](https://solutionsapp.shinyapps.io/regressaosimples/){.app-btn target="_blank"}
+
+:::
