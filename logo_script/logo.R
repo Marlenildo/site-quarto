@@ -532,7 +532,7 @@ x <- seq(-3, 3, length.out = 500)
 
 # Curvas normais
 y_left  <- dnorm(x, mean = -1, sd = 0.6) * 3.5
-y_right <- dnorm(x, mean =  1, sd = 0.6) * 2.8
+y_right <- dnorm(x, mean =  1, sd = 0.6) * 3.5
 
 # Data frames separados para cada curva
 df_left  <- data.frame(x = x, y = y_left)
@@ -697,6 +697,30 @@ x_center <- mean(range(x))
 y_text_marlenildo <- -0.4
 y_text_solucoes  <- -1
 
+#'Colorida
+
+#btanco trabnsparente
+p_cor <- ggplot() +
+  geom_area(data = df_left, aes(x = x, y = y), fill = "#1f4e85") +
+  geom_area(data = df_right, aes(x = x, y = y), fill = "#6dd47e") +
+  annotate("text", x = x_center, y = y_text_marlenildo, label = "MARLENILDO",
+           color = "#1f4e85", size = 23, fontface = "bold",
+           hjust = 0.5, family = "audiowide") +
+  annotate("text", x = x_center, y = y_text_solucoes, label = "Soluções em Curso",
+           color = "#6dd47e", size = 17, fontface = "bold",
+           hjust = 0.5, family = "audiowide") +
+  coord_equal(ylim = c(y_text_solucoes - 1.2, max(y_left, y_right) + 0.5)) +
+  theme_void() +
+  theme(panel.background = element_rect(fill = NA, color = NA),
+        plot.background  = element_rect(fill = NA, color = NA))
+
+p_cor
+ggsave("logo_baixo_branco_transp.png", plot = p_cor, width = 12, height = 7, dpi = 300, bg = "transparent", scale=0.16)
+
+
+
+
+
 # Cor transparaente
 p <- ggplot() +
   geom_area(data = df_left, aes(x = x, y = y), fill = "white", alpha = 0.6) +
@@ -737,24 +761,6 @@ p2 <- ggplot() +
 p2
 ggsave("logo_baixo_cinza_transp.png", plot = p2, width = 12, height = 7, dpi = 300, bg = "transparent", scale=0.16)
 
-
-#btanco trabnsparente
-p3 <- ggplot() +
-  geom_area(data = df_left, aes(x = x, y = y), fill = "white") +
-  geom_area(data = df_right, aes(x = x, y = y), fill = "white") +
-  annotate("text", x = x_center, y = y_text_marlenildo, label = "MARLENILDO",
-           color = "white", size = 23, fontface = "bold",
-           hjust = 0.5, family = "audiowide") +
-  annotate("text", x = x_center, y = y_text_solucoes, label = "Soluções em Curso",
-           color = "white", size = 17, fontface = "bold",
-           hjust = 0.5, family = "audiowide") +
-  coord_equal(ylim = c(y_text_solucoes - 1.2, max(y_left, y_right) + 0.5)) +
-  theme_void() +
-  theme(panel.background = element_rect(fill = NA, color = NA),
-        plot.background  = element_rect(fill = NA, color = NA))
-
-p3
-ggsave("logo_baixo_branco_transp.png", plot = p3, width = 12, height = 7, dpi = 300, bg = "transparent", scale=0.16)
 
 
 ##
@@ -797,10 +803,193 @@ p <- ggplot() +
            hjust = 0.5, family = "audiowide") +
   coord_cartesian(xlim = c(x_min, x_max),
                   ylim = c(y_text_solucoes, max(y_left, y_right))) +
-  theme_minimal() +
-  theme(panel.background = element_blank(),
-        plot.background  = element_blank())
+  theme_void()
 
 
 p
 
+
+#Animação 1----
+library(ggplot2)
+library(showtext)
+library(gganimate)
+library(dplyr)
+
+# Ativar showtext
+font_add_google("Audiowide", "audiowide")
+showtext_auto()
+
+# Sequência de x
+x <- seq(-3, 3, length.out = 500)
+
+# Curvas mais próximas
+y_left  <- dnorm(x, mean = -0.8, sd = 0.6) * 3.5
+y_right <- dnorm(x, mean =  0.8, sd = 0.6) * 3.5
+df_left  <- data.frame(x = x, y = y_left)
+df_right <- data.frame(x = x, y = y_right)
+
+# Coordenadas do texto
+x_center <- mean(range(x))
+y_text_marlenildo <- -0.6
+y_text_solucoes  <- -1.2
+
+# Gráfico animado com curvas crescendo
+p <- ggplot() +
+  geom_area(data = df_left, aes(x = x, y = y), fill = "#1f4e85", alpha=0.5, stat = "identity") +
+  geom_area(data = df_right, aes(x = x, y = y), fill = "#6dd47e", alpha=0.5, stat = "identity") +
+  annotate("text", x = x_center, y = y_text_marlenildo, label = "MARLENILDO",
+           color = "#1f4e85", size = 15, fontface = "bold",
+           hjust = 0.5, family = "audiowide") +
+  annotate("text", x = x_center, y = y_text_solucoes, label = "Soluções em Curso",
+           color = "#6dd47e", size = 10, fontface = "bold",
+           hjust = 0.5, family = "audiowide") +
+  coord_equal(ylim = c(y_text_solucoes - 0.5, max(y_left, y_right) + 0.5)) +
+  theme_void() +
+  theme(panel.background = element_rect(fill = NA, color = NA),
+        plot.background  = element_rect(fill = NA, color = NA)) +
+  transition_reveal(x)  # animação da curva crescendo
+
+# Renderizar animação
+animate(p, nframes = 100, fps = 20, width = 800, height = 600,
+        renderer = gifski_renderer("logo_animado.gif"))
+
+# Animação 2----
+library(ggplot2)
+library(showtext)
+library(gganimate)
+library(dplyr)
+
+# Ativar showtext
+font_add_google("Audiowide", "audiowide")
+showtext_auto()
+
+# Sequência de x
+x <- seq(-3, 3, length.out = 500)
+
+# Curvas finais
+y_left  <- dnorm(x, mean = -0.8, sd = 0.6) * 3.5
+y_right <- dnorm(x, mean =  0.8, sd = 0.6) * 3.5
+
+# Criar frames para animação
+nframes <- 100
+df_left <- data.frame(
+  x = rep(x, nframes),
+  frame = rep(1:nframes, each = length(x)),
+  y_final = rep(y_left, nframes)
+)
+df_left <- df_left %>%
+  mutate(y = y_final * (frame / nframes))  # vai crescendo de 0 até y_final
+
+df_right <- data.frame(
+  x = rep(x, nframes),
+  frame = rep(1:nframes, each = length(x)),
+  y_final = rep(y_right, nframes)
+)
+df_right <- df_right %>%
+  mutate(y = y_final * (frame / nframes))  # vai crescendo de 0 até y_final
+
+# Coordenadas do texto
+x_center <- mean(range(x))
+y_text_marlenildo <- -0.6
+y_text_solucoes  <- -1.2
+
+# Gráfico animado
+p <- ggplot() +
+  geom_area(data = df_left, aes(x = x, y = y), fill = "#1f4e85", alpha=0.5, stat="identity") +
+  geom_area(data = df_right, aes(x = x, y = y), fill = "#6dd47e", alpha=0.5, stat="identity") +
+  annotate("text", x = x_center, y = y_text_marlenildo, label = "MARLENILDO",
+           color = "#1f4e85", size = 15, fontface = "bold",
+           hjust = 0.5, family = "audiowide") +
+  annotate("text", x = x_center, y = y_text_solucoes, label = "Soluções em Curso",
+           color = "#6dd47e", size = 10, fontface = "bold",
+           hjust = 0.5, family = "audiowide") +
+  coord_equal(ylim = c(y_text_solucoes - 0.5, max(y_left, y_right) + 0.5)) +
+  theme_void() +
+  theme(panel.background = element_rect(fill = NA, color = NA),
+        plot.background  = element_rect(fill = NA, color = NA)) +
+  transition_time(frame)  # animação seguindo os frames
+
+# Renderizar animação
+animate(p, nframes = nframes, fps = 20, width = 800, height = 600,
+        renderer = gifski_renderer("logo_animado_duas_curvas.gif"))
+
+#Animação 3----
+
+library(ggplot2)
+library(showtext)
+library(gganimate)
+library(dplyr)
+library(tidyr)
+library(stringr)
+
+# Ativar showtext
+font_add_google("Audiowide", "audiowide")
+showtext_auto()
+
+# Sequência de x
+x <- seq(-3, 3, length.out = 500)
+
+# Curvas finais
+y_left  <- dnorm(x, mean = -0.8, sd = 0.6) * 3.5
+y_right <- dnorm(x, mean =  0.8, sd = 0.6) * 3.5
+
+# Frames de animação
+nframes <- 100
+
+# Curvas animadas
+df_left <- data.frame(
+  x = rep(x, nframes),
+  frame = rep(1:nframes, each = length(x)),
+  y_final = rep(y_left, nframes)
+) %>%
+  mutate(y = y_final * (frame / nframes))
+
+df_right <- data.frame(
+  x = rep(x, nframes),
+  frame = rep(1:nframes, each = length(x)),
+  y_final = rep(y_right, nframes)
+) %>%
+  mutate(y = y_final * (frame / nframes))
+
+# Função para animar letras sequenciais caindo próximo da posição final
+animate_text_seq <- function(text, y_final, x_center, nframes, spacing = 0.6, delay = 5) {
+  letters <- str_split(text, "")[[1]]
+  n_letters <- length(letters)
+  x_pos <- seq(x_center - spacing*(n_letters-1)/2, x_center + spacing*(n_letters-1)/2, length.out = n_letters)
+  
+  df <- expand.grid(letter = letters,
+                    x = x_pos,
+                    frame = 1:nframes) %>%
+    group_by(letter, x) %>%
+    mutate(
+      # Cada letra inicia a animação com delay proporcional à sua posição
+      start_frame = (seq_len(n()) %% n_letters) * delay,
+      frame_adj = pmax(frame - start_frame, 0),
+      y = y_final + 0.5 * exp(-0.05 * frame_adj)  # começa levemente acima e cai suavemente
+    ) %>%
+    ungroup()
+  
+  return(df)
+}
+
+# Letras animadas dos textos
+df_text1 <- animate_text_seq("MARLENILDO", y_final = -0.6, x_center = 0, nframes = nframes, spacing = 0.6, delay = 5)
+df_text2 <- animate_text_seq("Soluções em Curso", y_final = -1.2, x_center = 0, nframes = nframes, spacing = 0.5, delay = 5)
+
+# Gráfico animado
+p <- ggplot() +
+  geom_area(data = df_left, aes(x = x, y = y), fill = "#1f4e85", alpha=0.5, stat="identity") +
+  geom_area(data = df_right, aes(x = x, y = y), fill = "#6dd47e", alpha=0.5, stat="identity") +
+  geom_text(data = df_text1, aes(x = x, y = y, label = letter), color = "#1f4e85",
+            size = 15, fontface = "bold", family = "Audiowide") +
+  geom_text(data = df_text2, aes(x = x, y = y, label = letter), color = "#6dd47e",
+            size = 10, fontface = "bold", family = "Audiowide") +
+  coord_equal(ylim = c(-2.5, max(y_left, y_right) + 0.5)) +
+  theme_void() +
+  theme(panel.background = element_rect(fill = NA, color = NA),
+        plot.background  = element_rect(fill = NA, color = NA)) +
+  transition_time(frame)
+
+# Renderizar animação
+animate(p, nframes = nframes, fps = 20, width = 800, height = 600,
+        renderer = gifski_renderer("logo_animado_letras_sequenciais.gif"))
