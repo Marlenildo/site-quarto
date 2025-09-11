@@ -2,10 +2,10 @@
    Variáveis globais de cor
    ============================== */
 :root {
-  --primary-color: #6dd47e;    /* verde para destaque/ativo */
-  --secondary-color: #1f4e85;  /* azul escuro da navbar e hover */
-  --text-light: #ffffff;        /* texto claro */
-  --text-dark: #111111;         /* texto escuro */
+  --primary-color: #1f4e85;   /* azul principal */
+  --secondary-color: #6dd47e; /* verde para destaques/hover */
+  --text-light: #ffffff;      /* texto claro */
+  --text-dark: #111111;       /* texto escuro */
 }
 
 /* ==============================
@@ -23,7 +23,7 @@ body {
    Navbar
    ============================== */
 .navbar {
-  background-color: var(--secondary-color); /* azul sólido */
+  background-color: var(--primary-color); /* azul sólido */
   border-bottom: none;
   padding: 0.6rem 1rem;
   position: relative;
@@ -39,7 +39,7 @@ body {
 
 /* Hover dos links da navbar */
 .navbar a:hover {
-  color: var(--primary-color); /* verde */
+  color: var(--secondary-color); /* verde */
   font-weight: bold;
 }
 
@@ -47,8 +47,8 @@ body {
    Menu dropdown
    ============================== */
 .navbar .dropdown-menu {
-  background-color: var(--secondary-color); /* fundo azul */
-  border: none; /* remove borda se houver */
+  background-color: var(--primary-color); /* fundo azul */
+  border: none;
   min-width: 180px;
   padding: 0.5rem 0;
   border-radius: 0 0 8px 8px;
@@ -64,31 +64,29 @@ body {
 
 /* Hover nos links do dropdown */
 .navbar .dropdown-menu a:hover {
-  background-color: var(--primary-color); /* verde */
-  color: var(--text-light); /* mantém branco */
+  background-color: var(--secondary-color); /* verde */
+  color: var(--text-light);
   font-weight: bold;
 }
-
 
 /* ==============================
    Footer full-width e conteúdo distribuído
    ============================== */
 .page-footer {
   width: 100%;
-  background-color: #ffffff;       /* fundo branco */
+  background-color: #ffffff;
   padding: 20px 0;
   display: flex;
-  justify-content: space-around;   /* distribui os itens na linha */
+  justify-content: space-around;
   align-items: center;
-  flex-wrap: wrap;                 /* quebra em telas pequenas */
+  flex-wrap: wrap;
   gap: 15px;
   text-align: center;
   box-sizing: border-box;
 }
 
-/* Footer links e textos */
 .page-footer a {
-  color: var(--secondary-color);
+  color: var(--primary-color); /* azul */
   text-decoration: none;
   margin: 0 10px;
 }
@@ -97,7 +95,6 @@ body {
   text-decoration: underline;
 }
 
-/* Footer imagens */
 .page-footer img {
   max-height: 40px;
   width: auto;
@@ -107,7 +104,7 @@ body {
 /* Responsivo: mobile */
 @media (max-width: 768px) {
   .page-footer {
-    flex-direction: column;  /* empilha tudo verticalmente */
+    flex-direction: column;
     gap: 10px;
   }
 
@@ -117,12 +114,11 @@ body {
   }
 }
 
-
 /* ==============================
    Títulos
    ============================== */
 h1.title, h1, h2, h3 {
-  color: var(--secondary-color); /* azul */
+  color: var(--primary-color); /* azul */
 }
 
 /* ==============================
@@ -130,7 +126,7 @@ h1.title, h1, h2, h3 {
    ============================== */
 #hero-banner {
   width: 100%;
-  background-color: var(--primary-color); /* verde */
+  background-color: var(--secondary-color); /* verde */
   color: var(--text-light);
   padding: 60px 20px;
   margin-bottom: 2rem;
@@ -156,12 +152,13 @@ h1.title, h1, h2, h3 {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;   /* centraliza horizontalmente */
   padding: 15px;
-  border: 2px solid var(--secondary-color); /* azul */
+  border: 2px solid var(--primary-color); /* azul */
   border-radius: 12px;
   text-decoration: none;
-  color: var(--secondary-color); /* azul escuro */
-  background-color: #ffffff;      /* fundo branco */
+  color: var(--primary-color);
+  background-color: #ffffff;
   transition: all 0.25s ease;
   height: 80px;
   cursor: pointer;
@@ -185,7 +182,7 @@ h1.title, h1, h2, h3 {
 .app-btn .title {
   font-size: 18px;
   font-weight: normal;
-  color: var(--secondary-color); /* azul */
+  color: var(--primary-color);
   transition: all 0.25s ease;
 }
 
@@ -194,32 +191,32 @@ h1.title, h1, h2, h3 {
   color: #555;
 }
 
-/* Hover: fundo azul escuro, título verde e negrito */
+/* Hover */
 .app-btn:hover {
-  background-color: var(--secondary-color); /* azul */
+  background-color: var(--primary-color); /* azul */
   color: var(--text-light);
   transform: scale(1.03);
 }
 
 .app-btn:hover .title {
-  color: var(--primary-color); /* verde */
+  color: var(--secondary-color); /* verde */
   font-weight: bold;
 }
 
-/* Ativo/clicado: fundo verde, título verde e negrito */
+/* Ativo/clicado */
 .app-btn:active {
-  background-color: var(--primary-color); /* verde */
+  background-color: var(--secondary-color); /* verde */
   color: var(--text-light);
   transform: scale(0.98);
 }
 
 .app-btn:active .title {
-  color: var(--primary-color); /* verde */
+  color: var(--secondary-color);
   font-weight: bold;
 }
 
 /* ==============================
-   Responsividade
+   Responsividade apps
    ============================== */
 @media (max-width: 768px) {
   .app-btn {
@@ -248,15 +245,13 @@ h1.title, h1, h2, h3 {
   }
 }
 
-
-
 /* ==============================
    Tabelas harmoniosas compactas
    ============================== */
 .styled-table {
   border-collapse: collapse;
   margin: 25px 0;
-  font-size: 13px;          /* um pouco menor */
+  font-size: 13px;
   font-family: Arial, sans-serif;
   width: 100%;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
@@ -266,22 +261,46 @@ h1.title, h1, h2, h3 {
 .styled-table th, 
 .styled-table td {
   border: 1px solid #ddd;
-  padding: 6px 10px;        /* menos espaço interno */
-  text-align: center;       /* centraliza horizontal */
-  vertical-align: middle;   /* centraliza vertical */
+  padding: 6px 10px;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .styled-table th {
-  background-color: var(--secondary-color); /* azul da navbar */
-  color: var(--text-light);                  /* branco */
+  background-color: var(--primary-color); /* azul */
+  color: var(--text-light);
   font-weight: bold;
 }
 
 .styled-table tr:nth-child(even) {
-  background-color: #f9f9f9; /* linhas pares mais claras */
+  background-color: #f9f9f9;
 }
 
 .styled-table tr:hover {
-  background-color: var(--primary-color);  /* verde ao passar mouse */
+  background-color: var(--secondary-color);  /* verde */
   color: var(--text-light);
+}
+
+
+/* ==============================
+   Sobrescreve botão primário do Bootstrap
+   ============================== */
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  color: var(--text-light) !important;
+  border: none !important;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  text-decoration: none !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--secondary-color) !important;
+  color: var(--text-light) !important;
 }

@@ -1,0 +1,21 @@
+Bloco	Tipo de adubo	Tratamento	Data de coleta	Nota de vigor de planta	Número de folhas	Altura de planta (cm)	A planta sobreviveu?	Observação	Comentário livre
+1	Testemunha	T1	01/03/2025	3	11	140.6	FALSO	Atraso	Presença de pragas
+1	Adubo químico 50 kg N	T2	08/03/2025	3	6	124.7	VERDADEIRO	Doença	Folhas amareladas
+1	Adubo químico 100 kg N	T3	15/03/2025	2	5	162.6	FALSO	Atraso	Presença de pragas
+1	Adubo orgânico	T4	22/03/2025	2	10	152.3	FALSO	Normal	Presença de pragas
+1	Adubo verde	T5	29/03/2025	3	7	132.9	VERDADEIRO	Doença	Presença de pragas
+2	Testemunha	T1	05/04/2025	5	8	168.8	FALSO	Doença	Bom desenvolvimento
+2	Adubo químico 50 kg N	T2	12/04/2025	4	10	156.4	FALSO	Atraso	Folhas amareladas
+2	Adubo químico 100 kg N	T3	19/04/2025	1	5	145.6	VERDADEIRO	Doença	Folhas amareladas
+2	Adubo orgânico	T4	26/04/2025	2	7	163.4	VERDADEIRO	Normal	Presença de pragas
+2	Adubo verde	T5	03/05/2025	3	11	163.2	FALSO	Atraso	Necessita irrigação extra
+3	Testemunha	T1	10/05/2025	5	9	162.3	VERDADEIRO	Atraso	Presença de pragas
+3	Adubo químico 50 kg N	T2	17/05/2025	3	8	160.3	VERDADEIRO	Atraso	Presença de pragas
+3	Adubo químico 100 kg N	T3	24/05/2025	3	11	158.3	VERDADEIRO	Doença	Presença de pragas
+3	Adubo orgânico	T4	31/05/2025	1	12	149.1	FALSO	Doença	Bom desenvolvimento
+3	Adubo verde	T5	07/06/2025	4	6	145.4	FALSO	Atraso	Folhas amareladas
+4	Testemunha	T1	14/06/2025	1	9	144.3	VERDADEIRO	Normal	Presença de pragas
+4	Adubo químico 50 kg N	T2	21/06/2025	1	11	139.6	FALSO	Normal	Bom desenvolvimento
+4	Adubo químico 100 kg N	T3	28/06/2025	5	5	146.9	FALSO	Atraso	Presença de pragas
+4	Adubo orgânico	T4	05/07/2025	3	5	131	VERDADEIRO	Doença	Bom desenvolvimento
+4	Adubo verde	T5	12/07/2025	2	6	182.5	VERDADEIRO	Doença	Folhas amareladas

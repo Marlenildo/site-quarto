@@ -4,11 +4,7 @@ about:
   id: hero-heading
   template: jolla
   image: midia/perfil.jpeg
-format:
-  html:
-    include-in-header:
-      - text: |
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+format: html
 ---
 
 ::: {#hero-heading}
@@ -39,4 +35,5 @@ Acesse meus currículos ou entre em contato comigo através dos links abaixo:
 <i class="fas fa-envelope"></i> [marlenildo\@gmail.com](mailto:marlenildo@gmail.com)
 
 <i class="fab fa-whatsapp"></i> [(84) 98752-1095](https://wa.me/5584987521095)
+
 :::

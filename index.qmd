@@ -27,10 +27,11 @@ Acompanhe e explore o site para **aprender, praticar e aplicar R na sua pesquisa
 <h1> <i class="fa-solid fa-book"></i> Cursos disponíveis</h1>
 
 <p>
-Comece agora esmo a aprender a programar utilizando a linguagem R.
+Comece agora mesmo a aprender a analisar dados em experimentação agrícola.
 </p>
 
-[<i class="fa-brands fa-r-project"></i>  **Aprenda estatística utilizando a linguagem R**  ](codigos.qmd){.app-btn target="_blank"}
+[<i class="fa-brands fa-r-project"></i> **Curso de Estatística com R para Experimentação Agrícola**  
+Análise de dados experimentais utilizando a linguagem R.](codigos.qmd){.app-btn}
 
 :::
 
@@ -48,7 +49,7 @@ Comece testando abaixo:
 </p>
 
 [<i class="fas fa-chart-line"></i> **Gerar Regressão Linear**  
-Permite gerar um gráfico de regressão linear simples contendo a equação e o coeficiente de determinação (R²) a partir de dados X e Y](https://solutionsapp.shinyapps.io/regressaosimples/){.app-btn target="_blank"}
+Permite gerar gráficos de regressão linear simples exibindo a equação da reta e o coeficiente de determinação (R²).](https://solutionsapp.shinyapps.io/regressaosimples/){.app-btn target="_blank"}
 
 :::
 

@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./logo_script/favicon.png" rel="icon" type="image/png">
+<link href="./logo_script/favicon2.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -286,12 +286,8 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Construindo gráficos</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./aulas.html">
- <span class="dropdown-text">Aulas ministradas</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./atividades.html">
- <span class="dropdown-text">Atividades</span></a>
+    <a class="dropdown-item" href="./andamento.html">
+ <span class="dropdown-text">Andamento</span></a>
   </li>  
     </ul>
   </li>
@@ -351,9 +347,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- ::: {#hero-heading} -->
-<p>Este documento apresenta a organização inicial das aulas do curso de R e RStudio.<br>
-O objetivo é guiar os estudantes desde a instalação dos programas até o uso prático de scripts, diretórios de trabalho, painéis do RStudio e os principais tipos de variáveis.</p>
+<p>Acompanhe o andamento das aulas minitradas no <strong>Curso de Estatística com R para Experimentação Agrícola</strong>.</p>
 <p>As aulas foram estruturadas de forma progressiva, para que cada etapa sirva de base para a seguinte.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -388,6 +382,15 @@ O objetivo é guiar os estudantes desde a instalação dos programas até o uso 
 <td style="text-align: left;">11:07</td>
 <td style="text-align: right;">1.12</td>
 <td style="text-align: left;">Conhecendo os principais painéis do RStudio (Console , Editor/Script; Environment/History; Files/Plots/Packages/Help/Viewer); Comparar a diferença entre escrever direto no Console e salvar no Script; Reconhecendo os tipos de variáveis no Excel (numéricas, contínuas, discretas, categóricas, texto, data etc.).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Aula 3</td>
+<td style="text-align: left;">Discussão sobre tipos de variáveis e desenho de experimentos.</td>
+<td style="text-align: left;">10/set/2025</td>
+<td style="text-align: left;">16:00</td>
+<td style="text-align: left;">17:20</td>
+<td style="text-align: right;">1.33</td>
+<td style="text-align: left;">Reconhecendo os tipos de variáveis no exerimento no Excel; Como organizar os dados no Excel; Entendo sobre variáveis dependentes e independentes; Entendendo sobre fatores e níveis de fatores; Discussão sobre desenho de experimento (simples e fatorial) e analises estatísticas (paramétrica, não-paramétrica, análise univariada, bivariada e multivariada).</td>
 </tr>
 </tbody>
 </table>
@@ -483,7 +486,7 @@ O objetivo é guiar os estudantes desde a instalação dos programas até o uso 
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/marlenildo\.quarto\.pub\/solucoes-em-curso");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

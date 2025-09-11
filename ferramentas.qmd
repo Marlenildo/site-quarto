@@ -6,12 +6,18 @@ execute:
 ---
 
 
-<h4> Clique para acessar a ferramenta: </h4>
+Explore ferramentas práticas e interativas criadas para facilitar sua vida acadêmica e profissional.  
+
+Comece testando abaixo:
 
 
-::: {.apps}
+::: {#hero-banner}
 
-[<i class="fas fa-chart-line"></i> **Gerar Regressão Linear**  
-Permite gerar um gráfico de regressão linear simples contendo a equação e o coeficiente de determinação (R²) a partir de dados X e Y](https://solutionsapp.shinyapps.io/regressaosimples/){.app-btn target="_blank"}
+<h1> <i class="fas fa-chart-line"></i> Gerar Regressão Linear</h1>
+<p>
+Esta ferramenta permite gerar gráficos de regressão linear simples a partir de dados X e Y, exibindo a equação da reta e o coeficiente de determinação (R²). É ideal para verificar o ajuste de curvas, sendo especialmente útil em laboratórios durante a construção de curvas de soluções em análises.
+</p>
+
+[**ACESSAR**](https://solutionsapp.shinyapps.io/regressaosimples/){.app-btn target="_blank"}
 
 :::

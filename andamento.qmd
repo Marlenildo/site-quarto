@@ -1,3 +1,86 @@
+---
+title: "Andamento do Curso"
+lang: "pt-BR"
+format:
+  html
+  
+---
+
+Acompanhe o andamento do  **<i class="fa-brands fa-r-project"></i>  Curso de Estatística com R para Experimentação Agrícola**.
+
+
+## Aulas ministradas
+
+Acompanhe o andamento das aulas minitradas no curso.
+
+As aulas foram estruturadas de forma progressiva, para que cada etapa sirva de base para a seguinte.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+# Carregar pacotes necessários
+library(readxl)
+library(dplyr)
+library(kableExtra)
+library(lubridate)
+library(hms)
+library(stringr)
+
+
+aulas_ministradas <- read_excel("banco_dados/aulas_ministradas.xlsx", 
+    sheet = "Plan1")
+
+```
+
+
+```{r}
+#| echo: false
+# Mostrar tabela estilizada no estilo do site
+aulas_ministradas |>
+  mutate(
+    Data = format(Data, "%d/%b/%Y", locale = "pt_BR.UTF-8"),
+    `Horário de nício da aula` = format(`Horário de nício da aula`, "%H:%M"),
+    `Horário de fim da aula`    = format(`Horário de fim da aula`, "%H:%M"),
+    `Número de horas` = round(`Número de horas`,2)
+  ) |> 
+  kable(
+    caption = "Aulas ministradas no Curso de Estatística com R para Experimentação Agrícola.",
+    format = "html",
+    table.attr = "class='styled-table'"
+  ) |> 
+  kable_styling(
+    html_font = "Arial",
+    full_width = TRUE,
+    position = "center"
+    )
+
+```
+
+
+
+
+
+
+## Script do curso
+
+Baixe o script do curso e treine a progrmação em [<i class="fa-brands fa-r-project"></i> utilizando o RStudio.
+
+<p>
+Curso: Curso de Estatística com R para Experimentação Agrícola  
+Autor: DSc. Marlenildo Ferreira Melo  
+Data: 03 de setembro de 2025  
+</p>
+
+[<i class="fa-solid fa-download"></i> Baixar script_cursoder.R](logo_script/script_cursoder.R){.btn .btn-primary download="script_cursoder.R"}
+
+
+```{r eval=FALSE}
+#| echo: true        # mostra o código
+#| code-fold: true   # permite recolher/expandir
+#| code-summary: "Mostrar/Ocultar script"  # texto do botão
+
 #' SCRIPT PARA ANÁLISE DE DADOS EXPERIMENTAIS EM R
 #' 
 #' Curso: [Curso de Estatística com R para Experimentação Agrícola]
@@ -400,3 +483,38 @@ easyanova::ea1(dados_organizados_janitor[-2], design = 1, plot = 2, list = TRUE)
 #'  ============================================================================
 #'  Fim do Script
 #'  ============================================================================
+
+```
+
+
+<br>
+
+## Faça as atividades propostas
+
+<h4 style="color: var(--secondary-color); font-weight:bold;"> Desafios e exercícios à frente! </h4>
+
+Desenvolva as atividades a seguir e fortaleça suas habilidades em R.
+
+
+
+### Atividade 1
+
+Nesta atividade você deverá **buscar um banco de dados**, exportar para o **Excel** e, dentro do Excel, identificar os tipos de variáveis.
+
+1.  Procure e selecione um banco de dados (de sites abertos ou de outra fonte confiável).\
+2.  Exporte o banco de dados para o Excel (formato `.xlsx`).\
+3.  Abra o banco no **Excel**.\
+4.  Analise cada coluna e classifique o **tipo de variável**:
+    -   Numérica (valores inteiros ou decimais)\
+    -   Texto / Caractere (nomes, palavras, descrições)\
+    -   Lógica (valores **Verdadeiro/Falso** ou **Sim/Não**)\
+    -   Categórica / Fator (classes ou categorias, como tratamentos, cidades, espécies etc.)\
+5.  Crie uma **tabela resumo** no Excel com as seguintes colunas:
+    -   Nome da variável\
+    -   Tipo identificado\
+    -   Justificativa (por que é desse tipo)
+
+> 👉 Essa atividade vai treinar a **percepção dos diferentes tipos de variáveis** e a **organização de informações em planilhas**.
+
+
+

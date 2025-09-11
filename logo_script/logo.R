@@ -701,20 +701,19 @@ y_text_solucoes  <- -1
 
 #btanco trabnsparente
 p_cor <- ggplot() +
-  geom_area(data = df_left, aes(x = x, y = y), fill = "#1f4e85") +
-  geom_area(data = df_right, aes(x = x, y = y), fill = "#6dd47e") +
-  annotate("text", x = x_center, y = y_text_marlenildo, label = "MARLENILDO",
-           color = "#1f4e85", size = 23, fontface = "bold",
-           hjust = 0.5, family = "audiowide") +
-  annotate("text", x = x_center, y = y_text_solucoes, label = "Soluções em Curso",
-           color = "#6dd47e", size = 17, fontface = "bold",
-           hjust = 0.5, family = "audiowide") +
-  coord_equal(ylim = c(y_text_solucoes - 1.2, max(y_left, y_right) + 0.5)) +
-  theme_void() +
-  theme(panel.background = element_rect(fill = NA, color = NA),
-        plot.background  = element_rect(fill = NA, color = NA))
+  geom_area(data = df_left, aes(x = x, y = y), fill = "#1f4e85", alpha = 0.5) +
+  geom_area(data = df_right, aes(x = x, y = y), fill = "#6dd47e", alpha = 0.5) +
+  # annotate("text", x = x_center, y = y_text_marlenildo, label = "MARLENILDO",
+  #          color = "#1f4e85", size = 23, fontface = "bold",
+  #          hjust = 0.5, family = "audiowide") +
+  # annotate("text", x = x_center, y = y_text_solucoes, label = "Soluções em Curso",
+  #          color = "#6dd47e", size = 17, fontface = "bold",
+  #          hjust = 0.5, family = "audiowide") +
+  # coord_equal(ylim = c(y_text_solucoes - 1.2, max(y_left, y_right) + 0.5)) +
+  theme_void()
 
 p_cor
+ggsave("favicon.png", plot = p_cor, width = 12, height = 5, dpi = 64, bg = "transparent", scale=0.16)
 ggsave("logo_baixo_branco_transp.png", plot = p_cor, width = 12, height = 7, dpi = 300, bg = "transparent", scale=0.16)
 
 

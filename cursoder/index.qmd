@@ -1,20 +1,14 @@
 ---
-title: "Primeiros passos"
-author: "Marlenildo Melo"
-date: "2025-08-21"
-lang: "pt-BR"
+title: "Curso de Estatística com R para Experimentação Agrícola"
 format:
   html:
-    include-in-header:
-      - text: |
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    toc: true
-    toc_float:
-      collapsed: false
-      smooth_scroll: true
-    toc_depth: 4
-    number_sections: true
+    toc: true           # habilita o menu de tópicos
+    toc-location: left  # coloca o menu na lateral esquerda
+    toc-depth: 3        # mostra até nível de subtópicos
+    theme: cosmo        # tema da página
 ---
+
+
 
 # Começando a programar em <i class="fa-brands fa-r-project"></i> {#exemplos-de-códigos}
 

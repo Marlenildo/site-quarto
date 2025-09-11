@@ -4,7 +4,7 @@ project:
     - ads.txt
 
 website:
-  favicon: logo_script/favicon.png
+  favicon: logo_script/favicon2.png
   navbar:
     logo: logo_script/logo_navbar2.png  # caminho da sua imagem
     left:
@@ -18,10 +18,8 @@ website:
             href: codigos.qmd
           - text: "Construindo gráficos"
             href: graficos.qmd
-          - text: "Aulas ministradas"
-            href: aulas.qmd
-          - text: "Atividades"
-            href: atividades.qmd  
+          - text: "Andamento"
+            href: andamento.qmd  
       - href: ferramentas.qmd
         text: "Ferramentas"  
       - href: about.qmd
