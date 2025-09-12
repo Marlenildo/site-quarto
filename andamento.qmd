@@ -75,6 +75,8 @@ Data: 03 de setembro de 2025
 
 [<i class="fa-solid fa-download"></i> Baixar script_cursoder.R](logo_script/script_cursoder.R){.btn .btn-primary download="script_cursoder.R"}
 
+[<i class="fa-brands fa-github"></i> Ver no GitHub](https://github.com/Marlenildo/site/blob/main/logo_script/script_cursoder.R){.btn .btn-dark target="_blank"}
+
 
 ```{r eval=FALSE}
 #| echo: true        # mostra o código

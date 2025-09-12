@@ -455,6 +455,7 @@ Autor: DSc. Marlenildo Ferreira Melo<br>
 Data: 03 de setembro de 2025
 </p>
 <p><a href="logo_script/script_cursoder.R" class="btn btn-primary" download="script_cursoder.R"><i class="fa-solid fa-download"></i> Baixar script_cursoder.R</a></p>
+<p><a href="https://github.com/Marlenildo/site/blob/main/logo_script/script_cursoder.R" class="btn btn-dark" target="_blank"><i class="fa-brands fa-github"></i> Ver no GitHub</a></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Mostrar/Ocultar script</summary>
@@ -995,7 +996,7 @@ Desafios e exercícios à frente!
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/marlenildo\.quarto\.pub\/solucoes-em-curso");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

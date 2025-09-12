@@ -4,7 +4,7 @@ project:
     - ads.txt
 
 website:
-  favicon: logo_script/favicon2.png
+  favicon: logo_script/favicon.png
   navbar:
     logo: logo_script/logo_navbar2.png  # caminho da sua imagem
     left:
