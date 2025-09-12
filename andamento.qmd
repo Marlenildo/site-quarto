@@ -59,13 +59,12 @@ aulas_ministradas |>
 ```
 
 
-
-
+<br>
 
 
 ## Script do curso
 
-Baixe o script do curso e treine a progrmação em [<i class="fa-brands fa-r-project"></i> utilizando o RStudio.
+Baixe o script do curso e treine a progrmação em <i class="fa-brands fa-r-project"></i> utilizando o RStudio.
 
 <p>
 Curso: Curso de Estatística com R para Experimentação Agrícola  
@@ -489,6 +488,44 @@ easyanova::ea1(dados_organizados_janitor[-2], design = 1, plot = 2, list = TRUE)
 ```
 
 
+<br>
+
+## Bancos de dados
+
+Baixe os bancos de dados utilizados no curso.
+
+### Banco de dados 1
+
+Banco de dados contendo diferentes tipos de variáveis para aprender a identificá-las e analisá-las no R (categórica/fator, numérica, contínua, discreta, etc.).
+
+
+```{r}
+#| echo: false
+
+library(readxl)
+library(kableExtra)
+
+dados1_tipos_de_variaveis <- read_excel("banco_dados/dados1_tipos_de_variaveis.xlsx", 
+    sheet = "Planilha1")
+```
+
+[<i class="fa-solid fa-download"></i> Baixar dados1_tipos_de_variaveis.xlsx](banco _dados/dados1_tipos_de_variaveis.xlsx){.btn .btn-light download="dados1_tipos_de_variaveis.xlsx"}
+
+<details>
+<summary><i class="fa-solid fa-table"></i> Visualizar/Ocultar dados</summary>
+
+
+```{r}
+#| echo: false
+#| 
+library(knitr)
+kable(dados1_tipos_de_variaveis, caption = "Banco de dados 1: Reconhecendo tipos de variáveis (numéricas, categóricas, fatores, etc.) no Excel.")
+
+```
+
+
+
+<br>
 <br>
 
 ## Faça as atividades propostas

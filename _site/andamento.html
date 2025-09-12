@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./logo_script/favicon2.png" rel="icon" type="image/png">
+<link href="./logo_script/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -363,6 +363,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#aulas-ministradas" id="toc-aulas-ministradas" class="nav-link active" data-scroll-target="#aulas-ministradas">Aulas ministradas</a></li>
   <li><a href="#script-do-curso" id="toc-script-do-curso" class="nav-link" data-scroll-target="#script-do-curso">Script do curso</a></li>
+  <li><a href="#bancos-de-dados" id="toc-bancos-de-dados" class="nav-link" data-scroll-target="#bancos-de-dados">Bancos de dados</a>
+  <ul class="collapse">
+  <li><a href="#banco-de-dados-1" id="toc-banco-de-dados-1" class="nav-link" data-scroll-target="#banco-de-dados-1">Banco de dados 1</a></li>
+  </ul></li>
   <li><a href="#faça-as-atividades-propostas" id="toc-faça-as-atividades-propostas" class="nav-link" data-scroll-target="#faça-as-atividades-propostas">Faça as atividades propostas</a>
   <ul class="collapse">
   <li><a href="#atividade-1" id="toc-atividade-1" class="nav-link" data-scroll-target="#atividade-1">Atividade 1</a></li>
@@ -445,10 +449,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
+<p><br></p>
 </section>
 <section id="script-do-curso" class="level2">
 <h2 class="anchored" data-anchor-id="script-do-curso">Script do curso</h2>
-<p>Baixe o script do curso e treine a progrmação em [<i class="fa-brands fa-r-project"></i> utilizando o RStudio.</p>
+<p>Baixe o script do curso e treine a progrmação em <i class="fa-brands fa-r-project"></i> utilizando o RStudio.</p>
 <p>
 Curso: Curso de Estatística com R para Experimentação Agrícola<br>
 Autor: DSc. Marlenildo Ferreira Melo<br>
@@ -864,6 +869,295 @@ Data: 03 de setembro de 2025
 </details>
 </div>
 <p><br></p>
+</section>
+<section id="bancos-de-dados" class="level2">
+<h2 class="anchored" data-anchor-id="bancos-de-dados">Bancos de dados</h2>
+<p>Baixe os bancos de dados utilizados no curso.</p>
+<section id="banco-de-dados-1" class="level3">
+<h3 class="anchored" data-anchor-id="banco-de-dados-1">Banco de dados 1</h3>
+<p>Banco de dados contendo diferentes tipos de variáveis para aprender a identificá-las e analisá-las no R (categórica/fator, numérica, contínua, discreta, etc.).</p>
+<p><a href="banco _dados/dados1_tipos_de_variaveis.xlsx" class="btn btn-light" download="dados1_tipos_de_variaveis.xlsx"><i class="fa-solid fa-download"></i> Baixar dados1_tipos_de_variaveis.xlsx</a></p>
+<details>
+<summary>
+<i class="fa-solid fa-table"></i> Visualizar/Ocultar dados
+</summary>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Banco de dados 1: Reconhecendo tipos de variáveis (numéricas, categóricas, fatores, etc.) no Excel.</caption>
+<colgroup>
+<col style="width: 3%">
+<col style="width: 13%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 13%">
+<col style="width: 9%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 6%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Bloco</th>
+<th style="text-align: left;">Tipo de adubo</th>
+<th style="text-align: left;">Tratamento</th>
+<th style="text-align: left;">Data de coleta</th>
+<th style="text-align: right;">Nota de vigor de planta</th>
+<th style="text-align: right;">Número de folhas</th>
+<th style="text-align: right;">Altura de planta (cm)</th>
+<th style="text-align: left;">A planta sobreviveu?</th>
+<th style="text-align: left;">Observação</th>
+<th style="text-align: left;">Comentário livre</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Testemunha</td>
+<td style="text-align: left;">T1</td>
+<td style="text-align: left;">2025-03-01</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">140.6</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Atraso</td>
+<td style="text-align: left;">Presença de pragas</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Adubo químico 50 kg N</td>
+<td style="text-align: left;">T2</td>
+<td style="text-align: left;">2025-03-08</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">124.7</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">Doença</td>
+<td style="text-align: left;">Folhas amareladas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Adubo químico 100 kg N</td>
+<td style="text-align: left;">T3</td>
+<td style="text-align: left;">2025-03-15</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">162.6</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Atraso</td>
+<td style="text-align: left;">Presença de pragas</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Adubo orgânico</td>
+<td style="text-align: left;">T4</td>
+<td style="text-align: left;">2025-03-22</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">152.3</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Normal</td>
+<td style="text-align: left;">Presença de pragas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Adubo verde</td>
+<td style="text-align: left;">T5</td>
+<td style="text-align: left;">2025-03-29</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">132.9</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">Doença</td>
+<td style="text-align: left;">Presença de pragas</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Testemunha</td>
+<td style="text-align: left;">T1</td>
+<td style="text-align: left;">2025-04-05</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">168.8</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Doença</td>
+<td style="text-align: left;">Bom desenvolvimento</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Adubo químico 50 kg N</td>
+<td style="text-align: left;">T2</td>
+<td style="text-align: left;">2025-04-12</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">156.4</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Atraso</td>
+<td style="text-align: left;">Folhas amareladas</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Adubo químico 100 kg N</td>
+<td style="text-align: left;">T3</td>
+<td style="text-align: left;">2025-04-19</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">145.6</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">Doença</td>
+<td style="text-align: left;">Folhas amareladas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Adubo orgânico</td>
+<td style="text-align: left;">T4</td>
+<td style="text-align: left;">2025-04-26</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">163.4</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">Normal</td>
+<td style="text-align: left;">Presença de pragas</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Adubo verde</td>
+<td style="text-align: left;">T5</td>
+<td style="text-align: left;">2025-05-03</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">163.2</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Atraso</td>
+<td style="text-align: left;">Necessita irrigação extra</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Testemunha</td>
+<td style="text-align: left;">T1</td>
+<td style="text-align: left;">2025-05-10</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">162.3</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">Atraso</td>
+<td style="text-align: left;">Presença de pragas</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Adubo químico 50 kg N</td>
+<td style="text-align: left;">T2</td>
+<td style="text-align: left;">2025-05-17</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">160.3</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">Atraso</td>
+<td style="text-align: left;">Presença de pragas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Adubo químico 100 kg N</td>
+<td style="text-align: left;">T3</td>
+<td style="text-align: left;">2025-05-24</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">158.3</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">Doença</td>
+<td style="text-align: left;">Presença de pragas</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Adubo orgânico</td>
+<td style="text-align: left;">T4</td>
+<td style="text-align: left;">2025-05-31</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">149.1</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Doença</td>
+<td style="text-align: left;">Bom desenvolvimento</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Adubo verde</td>
+<td style="text-align: left;">T5</td>
+<td style="text-align: left;">2025-06-07</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">145.4</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Atraso</td>
+<td style="text-align: left;">Folhas amareladas</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Testemunha</td>
+<td style="text-align: left;">T1</td>
+<td style="text-align: left;">2025-06-14</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">144.3</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">Normal</td>
+<td style="text-align: left;">Presença de pragas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Adubo químico 50 kg N</td>
+<td style="text-align: left;">T2</td>
+<td style="text-align: left;">2025-06-21</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">139.6</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Normal</td>
+<td style="text-align: left;">Bom desenvolvimento</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Adubo químico 100 kg N</td>
+<td style="text-align: left;">T3</td>
+<td style="text-align: left;">2025-06-28</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">146.9</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Atraso</td>
+<td style="text-align: left;">Presença de pragas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Adubo orgânico</td>
+<td style="text-align: left;">T4</td>
+<td style="text-align: left;">2025-07-05</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">131.0</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">Doença</td>
+<td style="text-align: left;">Bom desenvolvimento</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Adubo verde</td>
+<td style="text-align: left;">T5</td>
+<td style="text-align: left;">2025-07-12</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">182.5</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">Doença</td>
+<td style="text-align: left;">Folhas amareladas</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br> <br></p>
+</details></section>
 </section>
 <section id="faça-as-atividades-propostas" class="level2">
 <h2 class="anchored" data-anchor-id="faça-as-atividades-propostas">Faça as atividades propostas</h2>

@@ -24,14 +24,19 @@ Acompanhe e explore o site para **aprender, praticar e aplicar R na sua pesquisa
 
 ::: {#hero-banner}
 
-<h1> <i class="fa-solid fa-book"></i> Cursos disponíveis</h1>
+<h1> Curso de Estatística com <i class="fa-brands fa-r-project"></i> para Experimentação Agrícola </h1>
 
 <p>
-Comece agora mesmo a aprender a analisar dados em experimentação agrícola.
+
+
+Comece agora mesmo a aprender a analisar dados em experimentação agrícola utilizando a linguagem R.
+
 </p>
 
-[<i class="fa-brands fa-r-project"></i> **Curso de Estatística com R para Experimentação Agrícola**  
-Análise de dados experimentais utilizando a linguagem R.](codigos.qmd){.app-btn}
+[Acesse o curso](codigos.qmd){.app-btn}
+
+[Andamento do curso](andamento.qmd){.app-btn}
+
 
 :::
 
