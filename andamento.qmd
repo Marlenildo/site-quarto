@@ -509,7 +509,7 @@ dados1_tipos_de_variaveis <- read_excel("banco_dados/dados1_tipos_de_variaveis.x
     sheet = "Planilha1")
 ```
 
-[<i class="fa-solid fa-download"></i> Baixar dados1_tipos_de_variaveis.xlsx](banco _dados/dados1_tipos_de_variaveis.xlsx){.btn .btn-light download="dados1_tipos_de_variaveis.xlsx"}
+[<i class="fa-solid fa-download"></i> Baixar dados1_tipos_de_variaveis.xlsx](banco_dados/dados1_tipos_de_variaveis.xlsx){.btn .btn-light download="dados1_tipos_de_variaveis.xlsx"}
 
 <details>
 <summary><i class="fa-solid fa-table"></i> Visualizar/Ocultar dados</summary>

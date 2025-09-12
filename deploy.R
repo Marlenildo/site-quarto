@@ -29,7 +29,7 @@ system("quarto render")
 
 # Faz commit e envia para o GitHub
 system("git add .")
-system("git commit -m 'Atualizada estrutura o site e página de andamento do curso de R'")
+system("git commit -m "Atualizada estrutura o site e página de andamento do curso de R"")
 system("git push origin main")
 
 # Envia os arquivos para o droplet
