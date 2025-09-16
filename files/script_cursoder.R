@@ -31,9 +31,12 @@
 #' Exemplo de caminho no Windows: ("C:/Users/SeuUsuario/Documentos/ProjetoR")
 #' Use barras normais (/) ou duplas (\\) no Windows
 
-setwd("C:/Users/marle/OneDrive/Documentos/Projetos R/site/logo_script")
-setwd("C:\\Users\\marle\\OneDrive\\Documentos\\Projetos R\\site\\logo_script")
+setwd("D:\\OneDrive\\Documentos\\Projetos R\\site\\banco_dados")
+setwd("D:/OneDrive/Documentos/Projetos R/site/banco_dados")
+
 getwd() # Verifica o diretório de trabalho atual
+
+
 
 
 #' ============================================================================
@@ -58,6 +61,45 @@ getwd() # Verifica o diretório de trabalho atual
 # Aula 3. Instalando e carregando pacotes no R----
 #' ============================================================================
 #' Data: [10/set/2025]
+
+install.packages("janitor")
+install.packages("dplyr")
+
+library(janitor)
+library(dplyr)
+
+
+dados <- read_excel("dados1_tipos_de_variaveis.xlsx")
+
+read_excel("dados1_tipos_de_variaveis.xlsx") -> dados
+
+dados
+help(view)
+?view
+
+View(dados)
+
+rm(dados)
+remove(dados)
+
+
+dados <- clean_names(dados)
+str(dados)
+version
+
+# Visulizar estrutura dos dados
+str(dados)
+summary(dados)
+glimpse(dados)
+dplyr::glimpse(dados)
+
+colnames(dados)
+# Convertendo variáveis para fator
+
+dados$bloco <- as.factor(dados$bloco)
+dados$tipo_de_adubo <- as.factor(dados$tipo_de_adubo)
+dados$tratamento <- as.factor(dados$tratamento)
+
 
 ## 3.1 Instalando pacotes----
 

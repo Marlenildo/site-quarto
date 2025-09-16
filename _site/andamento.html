@@ -445,6 +445,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">1.33</td>
 <td style="text-align: left;">Reconhecendo os tipos de variáveis no exerimento no Excel; Como organizar os dados no Excel; Entendo sobre variáveis dependentes e independentes; Entendendo sobre fatores e níveis de fatores; Discussão sobre desenho de experimento (simples e fatorial) e analises estatísticas (paramétrica, não-paramétrica, análise univariada, bivariada e multivariada).</td>
 </tr>
+<tr class="even">
+<td style="text-align: left;">Aula 4</td>
+<td style="text-align: left;">Instalação e ativação de pacotes e importação de dados.</td>
+<td style="text-align: left;">12/set/2025</td>
+<td style="text-align: left;">15:30</td>
+<td style="text-align: left;">18:00</td>
+<td style="text-align: right;">2.50</td>
+<td style="text-align: left;">Instalação e ativação de pacotes; Importação de dados do excel (.xlsx); Visualização da estrutura e resumo dos dados (str(), glimpse(), summary(), View); Limpesa e organização dos dados; Organização dos nomes das variáveis usando clean_names() do pacote janitor; Reconhecimento de tipos de variáveis; Conversão de variáveis character em factor usando as.factor().</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -573,10 +582,10 @@ Data: 03 de setembro de 2025
 <span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="do">## 3.3 Importando dados ara o R----</span></span>
 <span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="do">### 3.3.1 Importando dados de um arquivo Excel usando pacote readxl----</span></span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>dados_ruins_dic <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">marle</span><span class="sc">\\</span><span class="st">OneDrive</span><span class="sc">\\</span><span class="st">Documentos</span><span class="sc">\\</span><span class="st">Projetos R</span><span class="sc">\\</span><span class="st">site</span><span class="sc">\\</span><span class="st">banco_dados</span><span class="sc">\\</span><span class="st">dados_ruins_dic.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Planilha1"</span>)</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>dados_ruins_dic <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">marle</span><span class="sc">\\</span><span class="st">OneDrive</span><span class="sc">\\</span><span class="st">Documentos</span><span class="sc">\\</span><span class="st">Projetos R</span><span class="sc">\\</span><span class="st">site</span><span class="sc">\\</span><span class="st">files</span><span class="sc">\\</span><span class="st">dados_ruins_dic.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Planilha1"</span>)</span>
 <span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="do">### 3.3.2 Importando dados de um arquivo .txt (arquivo de texo bloco de notas) usando pacote readr----</span></span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>dados_ruins_dic <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">marle</span><span class="sc">\\</span><span class="st">OneDrive</span><span class="sc">\\</span><span class="st">Documentos</span><span class="sc">\\</span><span class="st">Projetos R</span><span class="sc">\\</span><span class="st">site</span><span class="sc">\\</span><span class="st">banco_dados</span><span class="sc">\\</span><span class="st">dados_ruins_dic.txt"</span>, </span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>dados_ruins_dic <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">marle</span><span class="sc">\\</span><span class="st">OneDrive</span><span class="sc">\\</span><span class="st">Documentos</span><span class="sc">\\</span><span class="st">Projetos R</span><span class="sc">\\</span><span class="st">site</span><span class="sc">\\</span><span class="st">files</span><span class="sc">\\</span><span class="st">dados_ruins_dic.txt"</span>, </span>
 <span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>                              <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, </span>
 <span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>                              <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
@@ -876,7 +885,7 @@ Data: 03 de setembro de 2025
 <section id="banco-de-dados-1" class="level3">
 <h3 class="anchored" data-anchor-id="banco-de-dados-1">Banco de dados 1</h3>
 <p>Banco de dados contendo diferentes tipos de variáveis para aprender a identificá-las e analisá-las no R (categórica/fator, numérica, contínua, discreta, etc.).</p>
-<p><a href="banco _dados/dados1_tipos_de_variaveis.xlsx" class="btn btn-light" download="dados1_tipos_de_variaveis.xlsx"><i class="fa-solid fa-download"></i> Baixar dados1_tipos_de_variaveis.xlsx</a></p>
+<p><a href="files/dados1_tipos_de_variaveis.xlsx" class="btn btn-light" download="dados1_tipos_de_variaveis.xlsx"><i class="fa-solid fa-download"></i> Baixar dados1_tipos_de_variaveis.xlsx</a></p>
 <details>
 <summary>
 <i class="fa-solid fa-table"></i> Visualizar/Ocultar dados

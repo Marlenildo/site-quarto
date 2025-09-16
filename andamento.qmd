@@ -29,7 +29,7 @@ library(hms)
 library(stringr)
 
 
-aulas_ministradas <- read_excel("banco_dados/aulas_ministradas.xlsx", 
+aulas_ministradas <- read_excel("files/aulas_ministradas.xlsx", 
     sheet = "Plan1")
 
 ```
@@ -191,10 +191,10 @@ library(kableExtra)  # Tabelas formatadas
 ## 3.3 Importando dados ara o R----
 
 ### 3.3.1 Importando dados de um arquivo Excel usando pacote readxl----
-dados_ruins_dic <- read_excel("C:\\Users\\marle\\OneDrive\\Documentos\\Projetos R\\site\\banco_dados\\dados_ruins_dic.xlsx", sheet = "Planilha1")
+dados_ruins_dic <- read_excel("C:\\Users\\marle\\OneDrive\\Documentos\\Projetos R\\site\\files\\dados_ruins_dic.xlsx", sheet = "Planilha1")
 
 ### 3.3.2 Importando dados de um arquivo .txt (arquivo de texo bloco de notas) usando pacote readr----
-dados_ruins_dic <- read_delim("C:\\Users\\marle\\OneDrive\\Documentos\\Projetos R\\site\\banco_dados\\dados_ruins_dic.txt", 
+dados_ruins_dic <- read_delim("C:\\Users\\marle\\OneDrive\\Documentos\\Projetos R\\site\\files\\dados_ruins_dic.txt", 
                               delim = "\t", escape_double = FALSE, 
                               trim_ws = TRUE)
 
@@ -505,11 +505,11 @@ Banco de dados contendo diferentes tipos de variáveis para aprender a identific
 library(readxl)
 library(kableExtra)
 
-dados1_tipos_de_variaveis <- read_excel("banco_dados/dados1_tipos_de_variaveis.xlsx", 
+dados1_tipos_de_variaveis <- read_excel("files/dados1_tipos_de_variaveis.xlsx", 
     sheet = "Planilha1")
 ```
 
-[<i class="fa-solid fa-download"></i> Baixar dados1_tipos_de_variaveis.xlsx](banco_dados/dados1_tipos_de_variaveis.xlsx){.btn .btn-light download="dados1_tipos_de_variaveis.xlsx"}
+[<i class="fa-solid fa-download"></i> Baixar dados1_tipos_de_variaveis.xlsx](files/dados1_tipos_de_variaveis.xlsx){.btn .btn-light download="dados1_tipos_de_variaveis.xlsx"}
 
 <details>
 <summary><i class="fa-solid fa-table"></i> Visualizar/Ocultar dados</summary>

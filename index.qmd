@@ -44,17 +44,17 @@ Comece agora mesmo a aprender a analisar dados em experimentação agrícola uti
 
 <br>
 
+<h3>Explore ferramentas que facilitam seu dia a dia.</h3>
+
 
 ::: {#hero-banner}
 
-<h1> <i class="fa-solid fa-desktop"></i> Ferramentas Interativas</h1>
+<h1> <i class="fas fa-chart-line"></i> Gerar Regressão Linear</h1>
 <p>
-Explore ferramentas práticas e interativas criadas para facilitar sua vida acadêmica e profissional.  
-Comece testando abaixo:
+Esta ferramenta permite gerar gráficos de regressão linear simples a partir de dados X e Y, exibindo a equação da reta e o coeficiente de determinação (R²). É ideal para verificar o ajuste de curvas, sendo especialmente útil em laboratórios durante a construção de curvas de soluções em análises.
 </p>
 
-[<i class="fas fa-chart-line"></i> **Gerar Regressão Linear**  
-Permite gerar gráficos de regressão linear simples exibindo a equação da reta e o coeficiente de determinação (R²).](https://solutionsapp.shinyapps.io/regressaosimples/){.app-btn target="_blank"}
+[**ACESSAR**](https://solutionsapp.shinyapps.io/regressaosimples/){.app-btn target="_blank"}
 
 :::
 
