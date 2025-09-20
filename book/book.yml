@@ -1,0 +1,31 @@
+- title: Melão
+  subtitle: Create content with markdown 
+  links:
+    - text: Irrigação
+      href: melancia-irrigacao.qmd
+    - text: Pragas
+      href: melancia-pragas.qmd
+
+
+
+- title: Melancia
+  subtitle: Execute code and display its output
+  links:
+    - text: Irrigação
+      href: melao-irrigacao.qmd
+    - text: Pragas
+      href: melao-pragas.qmd
+      
+      
+# project:
+#   type: book
+#   output-dir: book
+# 
+# book:
+#   title: "mybook"
+#   author: "Jane Doe"
+#   date: "8/18/2021"
+#   chapters:
+#     - index.qmd
+#     - melao.qmd
+#     - melancia.qmd

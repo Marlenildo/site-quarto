@@ -287,22 +287,22 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">Sobre mim</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./ferramentas.html"> 
 <span class="menu-text">Ferramentas</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">Sobre mim</span></a>
+    <a class="nav-link" href="./book/index.html"> 
+<span class="menu-text">Book</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://github.com/Marlenildo"> 
-<span class="menu-text"><i class="fab fa-github"></i></span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://www.linkedin.com/in/marlenildoferreiramelo"> 
-<span class="menu-text"><i class="fab fa-linkedin"></i></span></a>
+    <a class="nav-link" href="./acervo"> 
+<span class="menu-text">Login</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -374,6 +374,35 @@ Esta ferramenta permite gerar gráficos de regressão linear simples a partir de
 
 
 </main> <!-- /main -->
+<script>
+
+  async function checkAuth() {
+
+    try {
+
+      const response = await fetch('/acervo/check-auth', { method: 'HEAD' });
+
+      if (response.ok) {
+
+        document.querySelectorAll('a[href*="book/"]').forEach(el => el.style.display = 'block');
+
+      } else {
+
+        document.querySelectorAll('a[href*="book/"]').forEach(el => el.style.display = 'none');
+
+      }
+
+    } catch (e) {
+
+      document.querySelectorAll('a[href*="book/"]').forEach(el => el.style.display = 'none');
+
+    }
+
+  }
+
+  window.onload = checkAuth;
+
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -791,7 +820,7 @@ Esta ferramenta permite gerar gráficos de regressão linear simples a partir de
 <a href="./index.html">Página inicial</a> | <a href="./codigos.html">Primeiros passos</a> | <a href="./about.html">Sobre mim</a>
 </div>
 <div>
-<img src="logo_script/logo_index.png" alt="Logo" height="40"> © Marlenildo Melo - Soluções em Curso. 2025.
+<img src="logo_script/logo_index.png" alt="Logo" height="40"> © Marlenildo Melo - Soluções em Curso. 2023.
 </div>
 <div>
 Este site foi desenvolvido utilizando a própria linguagem <i class="fa-brands fa-r-project"></i>.

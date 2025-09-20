@@ -1,0 +1,15 @@
+<script>
+  async function checkAuth() {
+    try {
+      const response = await fetch('/acervo/check-auth', { method: 'HEAD' });
+      if (response.ok) {
+        document.querySelectorAll('a[href*="book/"]').forEach(el => el.style.display = 'block');
+      } else {
+        document.querySelectorAll('a[href*="book/"]').forEach(el => el.style.display = 'none');
+      }
+    } catch (e) {
+      document.querySelectorAll('a[href*="book/"]').forEach(el => el.style.display = 'none');
+    }
+  }
+  window.onload = checkAuth;
+</script>

@@ -20,22 +20,36 @@ website:
             href: graficos.qmd
           - text: "Andamento"
             href: andamento.qmd  
-      - href: ferramentas.qmd
-        text: "Ferramentas"  
       - href: about.qmd
         text: "Sobre mim"
+      - href: ferramentas.qmd
+        text: "Ferramentas"
+      - text: "Book"
+        href: book/index.qmd  # Aba de acervo restrito (escondida por JS se não logado)
     right:
-      - href: "https://github.com/Marlenildo"
-        text: '<i class="fab fa-github"></i>'
-      - href: "https://www.linkedin.com/in/marlenildoferreiramelo"
-        text: '<i class="fab fa-linkedin"></i>'
+      - href: /acervo  # Aponta direto para rota protegida (Keycloak cuida do login)
+        text: "Login"  # Botão de login que triggera Keycloak
+  sidebar:
+    - id: guide
+      collapse-level: 1
+      contents:
+        - section: "Acervo"
+          href: book/index.qmd
+          contents:
+            - section: "Melão"
+              contents:
+                - book/melao-irrigacao.qmd
+                - book/melao-pragas.qmd
+            - section: "Melancia"
+              contents:
+                - book/melancia-irrigacao.qmd
+                - book/melancia-pragas.qmd
   page-footer:
     center: |
       <div>[Página inicial](index.qmd)  |  [Primeiros passos](codigos.qmd)  |  [Sobre mim](about.qmd)</div>
-      <div><img src="logo_script/logo_index.png" alt="Logo" height="40"> © Marlenildo Melo - Soluções em Curso. 2025.</div>
+      <div><img src="logo_script/logo_index.png" alt="Logo" height="40"> © Marlenildo Melo - Soluções em Curso. 2023.</div>
       <div>Este site foi desenvolvido utilizando a própria linguagem <i class="fa-brands fa-r-project"></i>.</div>
 
-      
 format:
   html:
     theme:
@@ -43,6 +57,7 @@ format:
       dark: darkly
     css: styles.css   # <- aqui você coloca o arquivo CSS
     toc: true
+    include-after-body: includes/after-body.html
     include-in-header: 
       - text: |
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -52,5 +67,78 @@ adsense:
 
 filters:
   - adsense
+
+# project:
+#   type: website
+#   resources:
+#     - ads.txt
+# 
+# website:
+#   favicon: logo_script/favicon.png
+#   navbar:
+#     logo: logo_script/logo_navbar2.png  # caminho da sua imagem
+#     left:
+#       - href: index.qmd
+#         text: "Página inicial"
+#       - text: "Curso de R"  
+#         menu:
+#           - text: "Apresentação do curso"
+#             href: apresentacao.qmd
+#           - text: "Primeiros passos"
+#             href: codigos.qmd
+#           - text: "Construindo gráficos"
+#             href: graficos.qmd
+#           - text: "Andamento"
+#             href: andamento.qmd  
+#       - href: about.qmd
+#         text: "Sobre mim"
+#       - href: ferramentas.qmd
+#         text: "Ferramentas"
+#       - href: book/index.qmd
+#         text: "Book"
+#         class: restricted-nav  # Classe para esconder se não logado
+#     right:
+#       - href: login.qmd
+#         text: Login  # Botão de login que leva para página restrita  
+#   sidebar:
+#     - id: guide
+#       collapse-level: 1
+#       contents:
+#         - section: "Acervo"
+#           href: book/index.qmd
+#           contents:
+#             - section: "Melão"
+#               contents:
+#                 - book/melao-irrigacao.qmd
+#                 - book/melao-pragas.qmd
+#             - section: "Melancia"
+#               contents:
+#                 - book/melancia-irrigacao.qmd
+#                 - book/melancia-pragas.qmd
+#   page-footer:
+#     center: |
+#       <div>[Página inicial](index.qmd)  |  [Primeiros passos](codigos.qmd)  |  [Sobre mim](about.qmd)</div>
+#       <div><img src="logo_script/logo_index.png" alt="Logo" height="40"> © Marlenildo Melo - Soluções em Curso. 2025.</div>
+#       <div>Este site foi desenvolvido utilizando a própria linguagem <i class="fa-brands fa-r-project"></i>.</div>
+# 
+#       
+# format:
+#   html:
+#     theme:
+#       light: flatly
+#       dark: darkly
+#     css: styles.css   # <- aqui você coloca o arquivo CSS
+#     toc: true
+#     include-after-body: includes/after-body.html
+#     include-in-header: 
+#       - text: |
+#           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+# 
+# 
+# adsense:
+#   publisher-id: ca-pub-3130340973057636
+# 
+# filters:
+#   - adsense
 
 

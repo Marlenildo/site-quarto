@@ -59,4 +59,3 @@ Esta ferramenta permite gerar gráficos de regressão linear simples a partir de
 :::
 
 
-

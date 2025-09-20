@@ -21,3 +21,27 @@ Esta ferramenta permite gerar gráficos de regressão linear simples a partir de
 [**ACESSAR**](https://solutionsapp.shinyapps.io/regressaosimples/){.app-btn target="_blank"}
 
 :::
+
+
+::: {#hero-banner}
+
+<h1> <i class="fas fa-leaf"></i> Agrofit</h1>
+<p>
+Aplicativo para consulta e análise de dados do Agrofit. Permite acessar informações de produtos, culturas e registros de forma prática.
+</p>
+
+[**ACESSAR**](https://marlenildo.site/agrofit){.app-btn target="_blank"}
+
+:::
+
+
+::: {#hero-banner}
+
+<h1> <i class="fas fa-balance-scale"></i> Digitar Pesos</h1>
+<p>
+Aplicativo para registro e organização de dados de pesagem de amostras. Facilita a digitação, reduz erros e gera arquivos organizados para análise posterior.
+</p>
+
+[**ACESSAR**](https://marlenildo.site/digitar_pesos){.app-btn target="_blank"}
+
+:::
