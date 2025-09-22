@@ -5,6 +5,12 @@ project:
 
 website:
   favicon: logo_script/favicon.png
+  cookie-consent:
+    type: express
+    style: headline
+  # google-analytics:
+  #   tracking-id: "G-XXXXXXX"
+  #   anonymize-ip: true
   navbar:
     logo: logo_script/logo_navbar2.png  # caminho da sua imagem
     left:
@@ -27,8 +33,9 @@ website:
       - text: "Book"
         href: book/index.qmd  # Aba de acervo restrito (escondida por JS se não logado)
     right:
-      - href: /acervo  # Aponta direto para rota protegida (Keycloak cuida do login)
-        text: "Login"  # Botão de login que triggera Keycloak
+      - href: /login  # Aponta direto para rota protegida (Keycloak cuida do login)
+        # text: "Login"  # Botão de login que triggera Keycloak
+        text: "<span class='btn-login'>Login</span>"
   sidebar:
     - id: guide
       collapse-level: 1
@@ -52,9 +59,8 @@ website:
 
 format:
   html:
-    theme:
-      light: flatly
-      dark: darkly
+    theme: flatly
+    respect-user-color-scheme: true
     css: styles.css   # <- aqui você coloca o arquivo CSS
     toc: true
     include-after-body: includes/after-body.html

@@ -313,3 +313,19 @@ border: 1px solid #ccc;
 border-radius: 10px;
 background: #f9f9f9;
   }
+
+/* Botão Login no navbar */
+.navbar-nav .btn-login {
+  background-color: var(--secondary-color); /* verde padrão do tema */
+  color: var(--text-light) !important;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.navbar-nav .btn-login:hover {
+  background-color: var(--primary-color); /* azul do tema no hover */
+  color: var(--text-light) !important;
+}
